@@ -1,0 +1,276 @@
+.ui-content section {
+	overflow: hidden;
+	overflow-y: auto;
+}
+
+.ui-content section h3 {
+	position: relative;
+	top: 100px;
+}
+
+html, body {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	position: absolute;
+}
+#topic-title {
+    width: 360px;
+    height: 120px;
+    font-size: 40px;
+    line-height: 180px;
+    color: #0096ff;
+}
+.topic-name {
+    margin-left: 80px;
+    font-size: 24px;
+}
+.topics {
+    width: 360px;
+    height: 120px;    
+    align-items: center;
+    display: -webkit-flex;
+    -webkit-align-items: center;
+}
+.msgBox {
+    color: #fff;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    overflow-y: auto;
+	text-align: center;
+	color: black;
+	background: rgba(150, 222, 82, 0.75);
+	background-color: #96DE52;
+	border: 3px solid green;
+	border-radius: 5%;
+	padding: 40px;
+	margin: 20px;
+}
+
+h2 {
+	position: relative;
+	text-align: center;
+	width: 100%;
+	color: #FF9C39;;
+}
+
+h3 {
+	position: absolute;
+	text-align: center;
+	left: 3%;
+	top: -20%;
+	width: 100%;
+	color: black
+}
+
+img {
+	opacity: 0.95;
+	margin: 0px;
+	padding: 0px;
+	border: 0px;
+	width: 100%;
+	height:100%;
+	display: block;
+	float: left;
+	position: relative;
+	background-color: #fff !important;
+	/* Add the blur effect */
+	filter: blur(2px);
+	-webkit-filter: blur(2px);
+	    background-attachment: fixed;
+	
+	/* background-size: cover; /* Resize the background image to cover the entire container */
+	/* 	background-position: center; /* Center the image */
+	/*	background-repeat: no-repeat; /* Do not repeat the image */
+}
+.bg {
+	background-color: #fff !important;
+}
+button.like {
+	position: absolute;
+	text-align: center;
+	width: 70px;
+	height: 70px;
+	margin: 0 auto;
+	line-height: 50px;
+	border-radius: 50%;
+	/*color: rgba(0,150,136 ,1);
+	background-color:rgba(38,166,154 ,0.3);
+	border-color: rgba(0,150,136 ,1);
+	border-width: 1px;
+	*/
+	background-color: #96DE52;
+	font-size: 25px;
+	font-weight: bold;
+	color: black;
+	font-style: italic;
+}
+
+button.dislike {
+	position: relative;
+	float:left;
+	text-align: center;
+	width: 70px;
+	height: 70px;
+	margin: 0 auto;
+	line-height: 50px;
+	border-radius: 50%;
+	/*color: rgba(255,82,82 ,1);
+	background-color: rgba(255,138,128 ,0.3);
+	border-color: rgba(255,82,82 ,1);
+	border-width: 1px;
+	*/
+	color: black;
+	font-weight: bold;
+	background-color: #FF9C39;
+	font-size: 25px;
+	font-style: italic;
+}
+
+button.like:hover {
+	opacity: 0.75;
+}
+
+button.dislike:hover {
+	opacity: 0.75;
+}
+
+button.SOSbutton {
+	opacity: 0.85;
+	position: absolute;
+	left: 30%;
+	top: 40%;
+	text-align: center;
+	outline: none;
+	font-family: 'helvetica neue' sans-serif;
+	font-size: 1em;
+	color: hsla(350, 0%, 100%, 1);
+	text-shadow: -1px -1px 1px hsla(350, 0%, 0%, 0.7), 1px 1px 1px
+		hsla(350, 0%, 100%, 0.3);
+	display: block;
+	padding: 23px 37px 25px 35px;
+	cursor: pointer;
+	background-color: hsla(350, 80%, 10%, 1);
+	background-image: linear-gradient(273deg, hsla(350, 80%, 60%, 1) 30%,
+		hsla(350, 80%, 50%, 1) 40%);
+	border: none;
+	border-radius: 16px;
+	box-shadow: inset 0px 0px 1px 1px hsla(350, 80%, 30%, 0.9), inset 0px
+		0px 2px 3px hsla(350, 80%, 50%, 0.9), inset 1px 1px 1px 4px
+		hsla(350, 80%, 100%, 0.8), inset 0px 0px 2px 7px
+		hsla(350, 80%, 60%, 0.8), inset 0px 0px 4px 10px
+		hsla(350, 80%, 50%, 0.9), 8px 10px 2px 6px hsla(350, 80%, 20%, 0.55),
+		0px 0px 3px 2px hsla(350, 80%, 40%, 0.9), 0px 0px 2px 6px
+		hsla(350, 80%, 50%, 0.9), -1px -1px 1px 6px hsla(350, 80%, 100%, 0.9),
+		0px 0px 2px 11px hsla(350, 80%, 50%, 0.9), 0px 0px 1px 12px
+		hsla(350, 80%, 40%, 0.9), 1px 3px 14px 14px hsla(350, 80%, 0%, 0.4);
+}
+
+button.SOSbutton:active {
+	color: hsla(350, 0%, 85%, 1);
+	padding: 26px 34px 22px 38px;
+	background-image: linear-gradient(273deg, hsla(350, 80%, 50%, 1) 50%,
+		hsla(350, 80%, 55%, 1) 60%);
+	box-shadow: inset 3px 4px 3px 2px hsla(350, 80%, 20%, 0.55), inset 0px
+		0px 1px 1px hsla(350, 80%, 30%, 0.9), inset -1px -1px 2px 3px
+		hsla(350, 80%, 50%, 0.9), inset -2px -2px 1px 3px
+		hsla(350, 80%, 100%, 0.8), inset 0px 0px 2px 7px
+		hsla(350, 80%, 60%, 0.8), inset 0px 0px 3px 10px
+		hsla(350, 80%, 50%, 0.9), 0px 0px 3px 2px hsla(350, 80%, 40%, 0.9),
+		0px 0px 2px 6px hsla(350, 80%, 50%, 0.9),
+		/*0px 0px 2px 3px hsla(350,80%,60%,0.9),*/
+    -1px -1px 1px 6px hsla(350, 80%, 100%, 0.9),
+		/*0px 0px 2px 8px hsla(350,80%,60%,0.9),*/
+    0px 0px 2px 11px hsla(350, 80%, 50%, 0.9), 0px 0px 1px 12px
+		hsla(350, 80%, 40%, 0.9), 1px 3px 14px 14px hsla(350, 80%, 0%, 0.4);
+}
+/***************************/
+#digital-body {
+	position: absolute;
+	top: 30%;
+	left: 35%;
+	/*background-size: 100%;
+	background-repeat: no-repeat;
+	overflow: hidden;*/
+	background-color: #fff !important;
+}
+
+.borderdText {
+	text-shadow: .1em .1em .2em rgba(0, 0, 0, 0.4);
+	font-weight: bold;
+	/*color: #eee;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black*/
+}
+
+#battery-rec {
+	position: absolute;
+	width: 10%;
+	height: 5%;
+	top: 15%;
+	left: 63%;
+	border: solid 2px black;
+}
+
+#battery-fill {
+	position: absolute;
+	width: 11%;
+	height: 5%;
+	top: 15%;
+	left: 63%;
+	z-index: 10;
+	background-color: black;
+}
+
+/*
+hour&minutes
+*/
+#rec-time {
+	position: absolute;
+	padding-top: 5%;
+	width: 80%;
+	top: 35%;
+	left: 12%;
+}
+
+#str-hours {
+	font-size: 300%;
+	float: left;
+	color: black;
+}
+
+#str-console {
+	font-size: 300%;
+	float: left;
+	color: black;
+}
+
+#str-minutes {
+	font-size: 300%;
+	float: left;
+	color: black;
+}
+
+#str-ampm {
+	font-size: 100%;
+	color: black;
+	padding-top: 20%;
+	padding-left: 65%;
+}
+
+/*
+string day & month
+*/
+#rec-string-time {
+	position: absolute;
+	width: 100%;
+	top: 75%;
+	left: 24%;
+}
+
+#str-day {
+	font-size: 125%;
+	color: black;
+	float: left;
+}
+}
