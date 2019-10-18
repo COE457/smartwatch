@@ -14,45 +14,121 @@ html, body {
 	margin: 0;
 	position: absolute;
 }
-#topic-title {
-    width: 360px;
-    height: 120px;
-    font-size: 40px;
-    line-height: 180px;
-    color: #0096ff;
+
+.ui-popup .ui-popup-footer .ui-btn {
+	top:-150%;
+	color:white;
+	width:100%;
+	padding-top:0px;
+	padding-bottom:0px;
 }
-.topic-name {
-    margin-left: 80px;
-    font-size: 24px;
-}
-.topics {
-    width: 360px;
-    height: 120px;    
-    align-items: center;
-    display: -webkit-flex;
-    -webkit-align-items: center;
-}
-.msgBox {
-    color: #fff;
-    height: 100%;
-    width: 100%;
-    text-align: center;
-    overflow-y: auto;
+
+.container {
+	background-size: cover;
+	/* Resize the background image to cover the entire container */
+	background-position: center; /* Center the image */
+	background-image: url("/images/goofyBlur.jpg");
+	color: #fff;
+	height: 100%;
+	width: 100%;
 	text-align: center;
-	color: black;
+	overflow-y: auto;
+	margin-bottom: 20px;
+	padding-bottom: 20px;
+}
+
+.noMsgs {
+	color: #FF9C39;
+	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+	font-weight: bold;
+	font-size: 60px;
+	line-height: 340px;
+	top: 60px;
+}
+
+.msgFrom {
+	text-shadow: 0.075em 0.08em 0.1em rgba(0, 0, 0, 1); font-weight : bold;
+	width: 360px;
+	height: 120px;
+	font-size: 45px;
+	line-height: 180px;
+	color: #FF9C39;
+	font-weight: bold;
+}
+
+.msg {
+	font-size: 24px;
+	margin-bottom: 20px;
+}
+
+.msgContainer {
+	width: 320px;
+	flex-direction: column;
+	align-items: flex-start;
+	display: -webkit-flex;
+	-webkit-align-items: center;
+	background: rgba(150, 222, 82, 0.75);
+	background-color: #96DE52;
+	border: 2px solid green;
+	border-radius: 5%;
+	margin-left: 20px;
+}
+
+input[type="checkbox"] {
+	width: 40px;
+	height: 40px;
+	-webkit-appearance: none;
+	-webkit-mask-image: url('../image/checkbox_bg.png');
+	-webkit-mask-size: 40px 40px;
+	-webkit-mask-repeat: no-repeat;
+	background-color: rgba(112, 186, 15, 1);
+}
+
+input[type="checkbox"]::after {
+	content: "";
+	-webkit-mask-image: url('../image/checkbox_check.png');
+	-webkit-mask-repeat: repeat;
+	-webkit-mask-position: center bottom;
+	background-color: white;
+	height: 0;
+	bottom: 0;
+	-webkit-mask-size: 100%;
+}
+
+input[type="checkbox"]:checked::before {
+	-webkit-mask-image: none;
+	background: -webkit-radial-gradient(rgba(112, 186, 15, 1) 67%,
+		transparent 71%, transparent) no-repeat;
+	background-size: 40px 40px;
+	opacity: 1;
+}
+
+input[type="checkbox"]:checked::after {
+	height: 100%;
+	width: 100%;
+	position: absolute;
+}
+
+.msgBox {
+	color: #fff;
+	height: 100%;
+	width: 100%;
+	text-align: center;
+	overflow-y: auto;
 	background: rgba(150, 222, 82, 0.75);
 	background-color: #96DE52;
 	border: 3px solid green;
 	border-radius: 5%;
 	padding: 40px;
 	margin: 20px;
+	background-repeat: repeat-y;
 }
 
 h2 {
 	position: relative;
 	text-align: center;
 	width: 100%;
-	color: #FF9C39;;
+	color: #FF9C39;
 }
 
 h3 {
@@ -70,7 +146,7 @@ img {
 	padding: 0px;
 	border: 0px;
 	width: 100%;
-	height:100%;
+	height: 100%;
 	display: block;
 	float: left;
 	position: relative;
@@ -78,15 +154,18 @@ img {
 	/* Add the blur effect */
 	filter: blur(2px);
 	-webkit-filter: blur(2px);
-	    background-attachment: fixed;
-	
+	background-attachment: fixed;
+	background-repeat: repeat-y;
+
 	/* background-size: cover; /* Resize the background image to cover the entire container */
 	/* 	background-position: center; /* Center the image */
 	/*	background-repeat: no-repeat; /* Do not repeat the image */
 }
+
 .bg {
 	background-color: #fff !important;
 }
+
 button.like {
 	position: absolute;
 	text-align: center;
@@ -109,7 +188,7 @@ button.like {
 
 button.dislike {
 	position: relative;
-	float:left;
+	float: left;
 	text-align: center;
 	width: 70px;
 	height: 70px;
@@ -272,5 +351,4 @@ string day & month
 	font-size: 125%;
 	color: black;
 	float: left;
-}
 }

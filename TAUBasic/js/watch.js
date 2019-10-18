@@ -5,7 +5,7 @@
         flagDigital = false,
         battery = navigator.battery || navigator.webkitBattery || navigator.mozBattery,
         interval,
-        BACKGROUND_URL = "url('./images/donalds.png')",
+       // BACKGROUND_URL = "url('./images/donalds.png')",
         arrDay = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
         arrMonth = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
@@ -128,7 +128,7 @@
     function ambientDigitalWatch() {
         flagDigital = false;
         clearInterval(interval);
-        document.getElementById("digital-body").style.backgroundImage = "none";
+      //  document.getElementById("digital-body").style.backgroundImage = "none";
         updateTime();
     }
 

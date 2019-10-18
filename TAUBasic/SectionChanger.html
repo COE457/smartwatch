@@ -4,22 +4,21 @@
 <meta
 	content="width=device-width, initial-scale=1,  maximum-scale=1.0, user-scalable=no"
 	name="viewport" />
-
 <title>Kids Monitoring System</title>
 <link href="../../../lib/tau/wearable/theme/default/tau.css"
 	rel="stylesheet" />
 <link href="../../../lib/tau/wearable/theme/default/tau.circle.css"
 	media="all and (-tizen-geometric-shape: circle)" rel="stylesheet" />
 <link href="../../../css/style.css" rel="stylesheet" />
-<link href="../../../css/style.circle.css"
+<link href="css/style.circle.css"
 	media="all and (-tizen-geometric-shape: circle)" rel="stylesheet" />
+<link href="css/sectionchanger.css" rel="stylesheet" />
 </head>
 
 <body>
-	<div class="ui-page" data-enable-page-scroll="false"
+	<div class="ui-page bg" data-enable-page-scroll="false"
 		id="hsectionchangerPage">
 		<div class="ui-page-indicator" id="pageIndicator"></div>
-		<link href="css/sectionchanger.css" rel="stylesheet" />
 		<div class="ui-content" id="hsectionchanger">
 			<!-- section changer has only one child. -->
 			<div>
@@ -41,80 +40,91 @@
 						</div>
 					</div>
 				</section>
+
 				<section>
-					<div id="select-topic-view" class="container">
-						<div id="topic-title">Select topic</div>
-						<div id="topic-news" class="topics">
-							<span class="topic-name">News</span> <input type="checkbox"
-								id="checkbox-news" class="checkboxes" checked="checked">
+
+					<div id="indexscrollbar"></div>
+
+					<div id="message-view" class="container">
+						<div class="msgFrom" id="msgSender1">Mum</div>
+						<div class="msgContainer" id="msg1">
+							<div>
+								<span class="msg">Lunch is ready</span>
+							</div>
+
+							<div>
+								<a href="#graphicPopupToast1" data-rel="popup"> <input
+									type="checkbox" id="checkbox1" class="checkboxes">
+								</a>
+							</div>
+							<div id="graphicPopupToast1" class="ui-popup">
+								<div class="ui-popup-content">Dismiss Message?</div>
+								<div class="ui-popup-footer ui-grid-col-2">
+									<a id="2btnPopup-ok1" data-role="button"  class="ui-btn"
+										onclick="remove(this.id)">OK</a>
+									<a id="2btnPopup-cancel1" data-role="button" class="ui-btn" data-rel="back" data-inline="true">Cancel</a>
+								</div>
+							</div>
+						</div>
+						<div class="msgFrom" id="msgSender2">Dad</div>
+						<div class="msgContainer" id="msg2">
+							<div>
+								<span class="msg">Go to sleep</span>
+							</div>
+							<div>
+								<a href="#graphicPopupToast2" data-rel="popup"> <input
+									type="checkbox" id="checkbox2" class="checkboxes">
+								</a>
+							</div>
+							<div id="graphicPopupToast2" class="ui-popup ">
+								<div class="ui-popup-content">Dismiss Message?</div>
+								<div class="ui-popup-footer ui-grid-col-2">
+									<a id="2btnPopup-ok2" data-role="button"  class="ui-btn"
+										onclick="remove(this.id)">OK</a>
+									<a id="2btnPopup-cancel2" data-role="button" class="ui-btn" data-rel="back" data-inline="true">Cancel</a>
+
+								</div>
+							</div>
+						</div>
+						<div class="msgFrom" id="msgSender3">Mum</div>
+						<div class="msgContainer" id="msg3">
+							<div>
+								<span class="msg">Come Downstairs Right NOW Dora Winfred</span>
+							</div>
+							<div>
+								<a href="#graphicPopupToast3" data-rel="popup"> <input
+									type="checkbox" id="checkbox-news3" class="checkboxes">
+								</a>
+							</div>
+							<div id="graphicPopupToast3" class="ui-popup ">
+								<div class="ui-popup-content">Dismiss Message?</div>
+								<div class="ui-popup-footer ui-grid-col-2">
+									<a id="2btnPopup-ok3" data-role="button" class="ui-btn"
+										onclick="remove(this.id)">OK</a>
+									<a id="2btnPopup-cancel3" data-role="button" class="ui-btn" data-rel="back" data-inline="true">Cancel</a>
+
+								</div>
+							</div>
 						</div>
 					</div>
 				</section>
-				<section>
-					<div>
-						<img src="images/goofy.jpg" alt="Cover Page" />
-					</div>
-					<div>
-						<header>
-							<h2 class="borderdText">New Message!</h2>
-						</header>
-					</div>
-					<div class="msgBox" id="msg">
-						<div>Lunch is readyLunch is readyLunch is readyLunch is
-							ready</div>
-						<div>
-							<button class="dislike ">X</button>
-							<button class="like">&#10003;</button>
-						</div>
-					</div>
-				</section>
+
 				<section>
 					<div>
 						<img src="images/PanicBG.jpg" alt="Cover Page" />
 					</div>
 					<div>
-						<button class="SOSbutton">SOS</button>
+						<a href="#NotifyingPopup" data-rel="popup">
+							<button class="SOSbutton" id="SOS">SOS</button>
+						</a>
+					</div>
+					<div id="NotifyingPopup" class="ui-popup ui-popup-toast ">
+						<div class="ui-popup-content">Mum and Dad Notified</div>
 					</div>
 				</section>
-				<section>
-					<div id="indexscrollbar"></div>
-					<ul class="ui-listview ui-snap-listview" id="list1">
-						<li class="ui-listview-divider">A</li>
-						<li>Anton</li>
-						<li class="ui-listview-divider">B</li>
-						<li>Barry</li>
-						<li>Bob</li>
-						<li class="ui-listview-divider">C</li>
-						<li>Carry</li>
-						<li class="ui-listview-divider">D</li>
-						<li>Daisy</li>
-						<li class="ui-listview-divider">E</li>
-						<li>Eric</li>
-						<li class="ui-listview-divider">F</li>
-						<li>Fay</li>
-						<li class="ui-listview-divider">G</li>
-						<li>Garry</li>
-					</ul>
-				</section>
-				<section>
-					<div class="ui-switch">
-						*
-						<div class="ui-switch-text">* Toggle Switch *</div>
-						* <label class="ui-toggleswitch"> * <input type="checkbox"
-							class="ui-switch-input"> *
-							<div class="ui-switch-activation">
-								*
-								<div class="ui-switch-inneroffset">
-									*
-									<div class="ui-switch-handler"></div>
-									*
-								</div>
-								*
-							</div> *
-						</label> *
-					</div>
-					*
-				</section>
+
+
+
 			</div>
 		</div>
 	</div>
