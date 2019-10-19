@@ -120,7 +120,7 @@
 </Reference>
 <Reference URI="author-signature.xml">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>yjvCi0d0PHge6Nk7Vci3urh7n49g67MEFWRVTQnD0aY=</DigestValue>
+<DigestValue>s6cYh2A6Ezxysow850u6R02o2dCcbhsU8buJMYCI0hw=</DigestValue>
 </Reference>
 <Reference URI="config.xml">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -128,7 +128,7 @@
 </Reference>
 <Reference URI="css%2Fstyle.css">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>ovGXjX8BM98Up4T85ukA3jbKAREP+O5SFBCHPxghBo0=</DigestValue>
+<DigestValue>Qfxa9fJaLPB0jYoFrd3cnWvo5jRHH2g64zoZuocx0Fk=</DigestValue>
 </Reference>
 <Reference URI="images%2FDuck.jpg">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -176,7 +176,7 @@
 </Reference>
 <Reference URI="js%2Fapp.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>9vranvd31HEiCA5OfnPyssz1UGjMHezy6WqF625ip4w=</DigestValue>
+<DigestValue>Mu0XP4OQvIqkJZi2xojUo1e3wRaE3fAINqXb6YrrbG4=</DigestValue>
 </Reference>
 <Reference URI="js%2Fcircle-helper.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -1531,11 +1531,11 @@
 </Reference>
 </SignedInfo>
 <SignatureValue>
-ITX2+VVnNeIMCigogV5Wrwz/WPMbrTxxjg7VgBowVzTjNVqFwRgaVkUCKw0hNRIVgWE50X70AxEm
-cO4+Or5buMmoA3XTItwONJUWgrQg82U4aTcujtc9FvK8/QcYeMqJjX/NHEqMEzLxoPioG9hLx4AZ
-KPRUbuuJrHx1GwZdNjFAojsMtYgVwD+5ohRBrtv2L/FOzki6TT5yN4LJGfpUF7Ebbdkd0f/zsNK+
-BOSW0YjyrMZ/9pSmcfJEgBI3lIGZpPnwKa1M2U1Sj4oz2Pk95hITCj/Fn6zNiWdukxqZEwwFBkwG
-pLNuVAaJqZMT5ohvajgQDUvdAVemq9dncE9lVQ==
+ISt7Hb5LHeFDSOoMbZ4YL/Paoa+3Qr35flMsO+NVq+YN4R12PT9+LYVioPjuIG/V6JfdpXUD52Rz
+uP7nu6GsHXthX6JR0v2pZPdoAF21H89E6IzjaWfsyhqY6zxSvrCr7LXqxRo2OgrEiDjrHIKfXgK1
+q47Ut+GSEeBswrKm4pJFSprWNkqyxVg76PivX6+aIRTxSrQdUbldBAtNFZTmTipKQIzcVZAkFOkB
+Ow07C97TiKuwgy/fFGcjI9JDmi2t3xd9wqP/ksX2CC1g3VR8eVY3y2OFbToXtyHWvTkpPAwg3O7t
+qWJSoPtHXPzvX9A80cAF9npSYv2hSmeDU5+4kQ==
 </SignatureValue>
 <KeyInfo>
 <X509Data>
