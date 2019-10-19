@@ -3,8 +3,8 @@
     <tizen:application id="7dIiCygWmj.TAUBasic" package="7dIiCygWmj" required_version="4.0"/>
     <content src="SectionChanger.html"/>
     <feature name="http://tizen.org/feature/screen.size.normal"/>
-    <icon src="icon.png"/>
-    <name>TAUBasic</name>
+    <icon src="trans_icon (1) (1).png"/>
+    <name>KidsMonitor</name>
     <tizen:profile name="wearable"/>
     <tizen:setting hwkey-event="enable"/>
 </widget>

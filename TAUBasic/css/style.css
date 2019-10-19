@@ -47,13 +47,13 @@ html, body {
 }
 
 .msgFrom {
-	text-shadow: 0.075em 0.08em 0.1em rgba(0, 0, 0, 1); font-weight : bold;
+	text-shadow: 0.075em 0.08em 0.1em rgba(0, 0, 0, 1); 
+	font-weight : bold;
 	width: 360px;
 	height: 120px;
 	font-size: 45px;
 	line-height: 180px;
 	color: #FF9C39;
-	font-weight: bold;
 }
 
 .msg {
