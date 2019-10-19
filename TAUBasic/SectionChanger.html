@@ -17,69 +17,72 @@
 
 <body>
 	<div class="ui-page bg" data-enable-page-scroll="false"
-		id="hsectionchangerPage">
+		id="hsectionchangerPage"> <!-- This div is used to  -->
 		<div class="ui-page-indicator" id="pageIndicator"></div>
 		<div class="ui-content" id="hsectionchanger">
 			<!-- section changer has only one child. -->
 			<div>
-				<section class="ui-section-active">
+				<!-- First Section - Watch Interface -->
+				<section class="ui-section-active"> <!-- Active Section is the section that first shows -->
 					<div>
-						<img src="images/donalds.png" alt="Cover Page" />
+						<img src="images/donalds.png" alt="Cover Page" /> <!-- Loading an image as a background -->
 					</div>
 					<div>
-						<div id="battery-rec"></div>
-						<div id="battery-fill"></div>
-						<div id="rec-time">
-							<div id="str-hours" class="borderdText"></div>
-							<div id="str-console" class="borderdText">:</div>
-							<div id="str-minutes" class="borderdText"></div>
-							<div id="str-ampm" class="borderdText"></div>
+						<div id="battery-rec"></div><!-- div to show the battery border -->
+						<div id="battery-fill"></div><!-- div to show the battery fill -->
+						<div id="rec-time"> <!-- div to show the time -->
+							<div id="str-hours" class="borderdText"></div> <!-- div to show the hours string -->
+							<div id="str-console" class="borderdText">:</div><!-- div to show the console string -->
+							<div id="str-minutes" class="borderdText"></div> <!-- div to show the minutes string -->
+							<div id="str-ampm" class="borderdText"></div> <!-- div to show am or pm -->
 						</div>
-						<div id="rec-string-time">
-							<div id="str-day" class="borderdText"></div>
+						<div id="rec-string-time"> <!-- div to show the date -->
+							<div id="str-day" class="borderdText"></div> <!-- div to show the day -->
 						</div>
 					</div>
 				</section>
-
+				<!--Second Section - Messages Interface-->
 				<section>
-					<div id="indexscrollbar"></div>
-					<div id="message-view" class="container">
-
-						<div id="1">
-							<div class="msgFrom" id="msgSender1">Mum</div>
-							<div class="msgContainer" id="msg1">
+					<div id="indexscrollbar"></div> <!-- To make the section vertically scrollable -->
+					
+					<!-- Sample message -->
+					<div id="message-view" class="container"> <!-- container that holds the message card contents -->
+						<div id="1"> <!-- Message Id number is specified -->
+							<div class="msgFrom" id="msgSender1">Mum</div> <!-- Message Sender is shown -->
+							<div class="msgContainer"> <!-- msg container class is used to format the msg-->
 								<div>
-									<span class="msg">Lunch is ready</span>
+									<span class="msg">Lunch is ready</span> <!-- The message Lunch is ready is printed -->
 								</div>
 								<div>
-									<a href="#graphicPopupToast1" data-rel="popup"> <input
-										type="checkbox" id="checkbox1" class="checkboxes">
-									</a>
+									<!-- a link to the Popup which will show once the checkbox is checked-->
+									<a href="#Popup1" data-rel="popup"> <input type="checkbox" id="checkbox1" class="checkboxes"> </a>
 								</div>
-								<div id="graphicPopupToast1" class="ui-popup">
-									<div class="ui-popup-content">Dismiss Message?</div>
-									<div class="ui-popup-footer ui-grid-col-2">
+								<!-- Popup -->
+								<div id="Popup1" class="ui-popup"> 
+									<div class="ui-popup-content">Dismiss Message?</div> <!-- Popup message -->
+									<div class="ui-popup-footer ui-grid-col-2"><!-- Popup footed -->
 										<a id="2btnPopup-ok1" data-role="button" class="ui-btn"
-											onclick="remove(this.id)">OK</a> <a id="2btnPopup-cancel1"
-											data-role="button" class="ui-btn" data-rel="back"
-											data-inline="true">Cancel</a>
+											onclick="remove(this.id)">OK</a>  <!-- Clicking on Ok will call the java scrip remove function depnding on the id -->
+										<a id="2btnPopup-cancel1"data-role="button" class="ui-btn" data-rel="back"
+											data-inline="true">Cancel</a> <!-- Clicking on cancel will go back to the page -->
 									</div>
 								</div>
 							</div>
 						</div>
-
+						
+					<!-- Sample message 2 -->
 						<div id="2">
 							<div class="msgFrom" id="msgSender2">Dad</div>
-							<div class="msgContainer" id="msg2">
+							<div class="msgContainer">
 								<div>
 									<span class="msg">Go to sleep</span>
 								</div>
 								<div>
-									<a href="#graphicPopupToast2" data-rel="popup"> <input
+									<a href="#Popup2" data-rel="popup"> <input
 										type="checkbox" id="checkbox2" class="checkboxes">
 									</a>
 								</div>
-								<div id="graphicPopupToast2" class="ui-popup ">
+								<div id="Popup2" class="ui-popup ">
 									<div class="ui-popup-content">Dismiss Message?</div>
 									<div class="ui-popup-footer ui-grid-col-2">
 										<a id="2btnPopup-ok2" data-role="button" class="ui-btn"
@@ -91,19 +94,20 @@
 								</div>
 							</div>
 						</div>
-
+						
+					<!-- Sample message 3 -->
 						<div id="3">
 							<div class="msgFrom" id="msgSender3">Mum</div>
-							<div class="msgContainer" id="msg3">
+							<div class="msgContainer" >
 								<div>
 									<span class="msg">Come Here</span>
 								</div>
 								<div>
-									<a href="#graphicPopupToast3" data-rel="popup"> <input
+									<a href="#Popup3" data-rel="popup"> <input
 										type="checkbox" id="checkbox-news3" class="checkboxes">
 									</a>
 								</div>
-								<div id="graphicPopupToast3" class="ui-popup ">
+								<div id="Popup3" class="ui-popup ">
 									<div class="ui-popup-content">Dismiss Message?</div>
 									<div class="ui-popup-footer ui-grid-col-2">
 										<a id="2btnPopup-ok3" data-role="button" class="ui-btn"
@@ -116,23 +120,27 @@
 						</div>
 					</div>
 				</section>
-
+				
+				<!--Third Section - Panic Button Interface-->
 				<section>
 					<div>
-						<img src="images/PanicBG.jpg" alt="Cover Page" />
+						<img src="images/PanicBG.jpg" alt="Cover Page" /> <!-- Loading an image as a background -->
 					</div>
 					<div>
-						<a href="#NotifyingPopup" data-rel="popup">
+					<!-- a link to the Toast Popup which will show once the SOSbutton is clicked-->
+						<a href="#NotifyingPopup" data-rel="popup"> 
 							<button class="SOSbutton" id="SOS">SOS</button>
 						</a>
 					</div>
+					<!-- Toast Popup -->
 					<div id="NotifyingPopup" class="ui-popup ui-popup-toast ">
-						<div class="ui-popup-content">Mum and Dad Notified</div>
+						<div class="ui-popup-content">Mum and Dad Notified</div> <!-- Shows a toast that the parents are notified -->
 					</div>
 				</section>
 			</div>
 		</div>
 	</div>
+	<!------------------------------------------Loading java script files---------------------------------------------------->
 	<script src="lib/tau/wearable/js/tau.min.js"></script>
 	<!-- <script src="js/communication_watch.js"></script>-->
 	<script src="js/app.js"></script>
