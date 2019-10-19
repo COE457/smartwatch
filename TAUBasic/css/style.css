@@ -1,79 +1,87 @@
-.ui-content section {
-	overflow: hidden;
-	overflow-y: auto;
-}
-
-.ui-content section h3 {
-	position: relative;
-	top: 100px;
-}
-
+/* Formatting the html and body elements to have a width and height of 100% with no margins*/
 html, body {
 	width: 100%;
 	height: 100%;
 	margin: 0;
 	position: absolute;
 }
-
-.ui-popup .ui-popup-footer .ui-btn {
-	top:-150%;
-	color:white;
-	width:100%;
-	padding-top:0px;
-	padding-bottom:0px;
+/*Overwritting the ui-content class for the section tag*/
+.ui-content section {
+	overflow: hidden; /*clips the overflow and hides the rest of content*/
+	overflow-y: auto; /*adds a veritcal scrollbar when necessary*/
 }
 
+/*
+* Formatting the ui-btn class under the ui-popup-footer class under the ui-popup class
+* Positioning the button and formatting the text color to white
+*/
+.ui-popup .ui-popup-footer .ui-btn {
+	top: -150%;
+	color: white;
+	width: 100%;
+	padding-top: 0px;
+	padding-bottom: 0px;
+}
+/*
+*
+*/
 .container {
 	background-size: cover;
 	/* Resize the background image to cover the entire container */
 	background-position: center; /* Center the image */
 	background-image: url("/images/goofyBlur.jpg");
-	color: #fff;
+	/*Set background image through the url*/
+	color: #fff; /*set text color to black*/
 	height: 100%;
 	width: 100%;
 	text-align: center;
-	overflow-y: auto;
+	overflow-y: auto; /*adds vertical scroll bar when needed*/
 	margin-bottom: 20px;
 	padding-bottom: 20px;
 }
-
+/*Formats the No Message String*/
 .noMsgs {
-	color: #FF9C39;
+	color: #FF9C39; /*Orange color hex value*/
 	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-	font-weight: bold;
+	/*Gives the text a bordered effect*/
+	font-weight: bold; /*bold font*/
 	font-size: 60px;
 	line-height: 340px;
-	top: 60px;
+	top: 60px; /*postion the message from top*/
 }
-
+/*Fromats the Message Sender name text*/
 .msgFrom {
-	text-shadow: 0.075em 0.08em 0.1em rgba(0, 0, 0, 1); 
-	font-weight : bold;
+	text-shadow: 0.075em 0.08em 0.1em rgba(0, 0, 0, 1);
+	/*Adds a shadow effect to the text*/
+	font-weight: bold;
 	width: 360px;
 	height: 120px;
 	font-size: 45px;
 	line-height: 180px;
-	color: #FF9C39;
+	color: #FF9C39; /*Orange color hex value*/
 }
-
+/*Formats the message text*/
 .msg {
 	font-size: 24px;
 	margin-bottom: 20px;
 }
-
+/*Formats the container that has the message*/
 .msgContainer {
 	width: 320px;
 	flex-direction: column;
+	/*The flexible items inside the container are displayed vertically, as a column*/
 	align-items: flex-start;
+	/*The felxible items inside the container are positioned at the beginning of it*/
 	display: -webkit-flex;
 	-webkit-align-items: center;
-	background: rgba(150, 222, 82, 0.75);
-	background-color: #96DE52;
+	/*background: rgba(150, 222, 82, 0.75);*/
+	background-color: #96DE52; /*Sets the background color to green*/
 	border: 2px solid green;
-	border-radius: 5%;
+	/*Set the borders color to grean with a width of 2px*/
+	border-radius: 5%; /*Makes the borders round with a radius of 5%*/
 	margin-left: 20px;
 }
-
+/*Formats the checkbox and set the checkbox image proporties*/
 input[type="checkbox"] {
 	width: 40px;
 	height: 40px;
@@ -83,7 +91,7 @@ input[type="checkbox"] {
 	-webkit-mask-repeat: no-repeat;
 	background-color: rgba(112, 186, 15, 1);
 }
-
+/*Formats the checkbox after it has been clicked to display the check mark*/
 input[type="checkbox"]::after {
 	content: "";
 	-webkit-mask-image: url('../image/checkbox_check.png');
@@ -94,7 +102,7 @@ input[type="checkbox"]::after {
 	bottom: 0;
 	-webkit-mask-size: 100%;
 }
-
+/*Formats the checkmark before checking the checkbox*/
 input[type="checkbox"]:checked::before {
 	-webkit-mask-image: none;
 	background: -webkit-radial-gradient(rgba(112, 186, 15, 1) 67%,
@@ -102,46 +110,16 @@ input[type="checkbox"]:checked::before {
 	background-size: 40px 40px;
 	opacity: 1;
 }
-
+/*Formats the checkmark after checking the checkbox*/
 input[type="checkbox"]:checked::after {
 	height: 100%;
 	width: 100%;
 	position: absolute;
 }
 
-.msgBox {
-	color: #fff;
-	height: 100%;
-	width: 100%;
-	text-align: center;
-	overflow-y: auto;
-	background: rgba(150, 222, 82, 0.75);
-	background-color: #96DE52;
-	border: 3px solid green;
-	border-radius: 5%;
-	padding: 40px;
-	margin: 20px;
-	background-repeat: repeat-y;
-}
-
-h2 {
-	position: relative;
-	text-align: center;
-	width: 100%;
-	color: #FF9C39;
-}
-
-h3 {
-	position: absolute;
-	text-align: center;
-	left: 3%;
-	top: -20%;
-	width: 100%;
-	color: black
-}
-
+/*Formats the img tag*/
 img {
-	opacity: 0.95;
+	opacity: 0.95; /*Adds opacity*/
 	margin: 0px;
 	padding: 0px;
 	border: 0px;
@@ -155,66 +133,19 @@ img {
 	filter: blur(2px);
 	-webkit-filter: blur(2px);
 	background-attachment: fixed;
-	background-repeat: repeat-y;
-
+	background-repeat: repeat-y;/*Repeats the image vertically when needed*/
+	
 	/* background-size: cover; /* Resize the background image to cover the entire container */
 	/* 	background-position: center; /* Center the image */
 	/*	background-repeat: no-repeat; /* Do not repeat the image */
 }
 
 .bg {
-	background-color: #fff !important;
+	background-color: #fff !important;/*makes the background color as white*/
 }
 
-button.like {
-	position: absolute;
-	text-align: center;
-	width: 70px;
-	height: 70px;
-	margin: 0 auto;
-	line-height: 50px;
-	border-radius: 50%;
-	/*color: rgba(0,150,136 ,1);
-	background-color:rgba(38,166,154 ,0.3);
-	border-color: rgba(0,150,136 ,1);
-	border-width: 1px;
-	*/
-	background-color: #96DE52;
-	font-size: 25px;
-	font-weight: bold;
-	color: black;
-	font-style: italic;
-}
-
-button.dislike {
-	position: relative;
-	float: left;
-	text-align: center;
-	width: 70px;
-	height: 70px;
-	margin: 0 auto;
-	line-height: 50px;
-	border-radius: 50%;
-	/*color: rgba(255,82,82 ,1);
-	background-color: rgba(255,138,128 ,0.3);
-	border-color: rgba(255,82,82 ,1);
-	border-width: 1px;
-	*/
-	color: black;
-	font-weight: bold;
-	background-color: #FF9C39;
-	font-size: 25px;
-	font-style: italic;
-}
-
-button.like:hover {
-	opacity: 0.75;
-}
-
-button.dislike:hover {
-	opacity: 0.75;
-}
-
+/**************SOS Button****************/
+/*css to style the SOS button*/
 button.SOSbutton {
 	opacity: 0.85;
 	position: absolute;
@@ -245,7 +176,7 @@ button.SOSbutton {
 		0px 0px 2px 11px hsla(350, 80%, 50%, 0.9), 0px 0px 1px 12px
 		hsla(350, 80%, 40%, 0.9), 1px 3px 14px 14px hsla(350, 80%, 0%, 0.4);
 }
-
+/*css to style the SOS button when pressing it to show a pressed button effect*/
 button.SOSbutton:active {
 	color: hsla(350, 0%, 85%, 1);
 	padding: 26px 34px 22px 38px;
@@ -257,31 +188,27 @@ button.SOSbutton:active {
 		hsla(350, 80%, 100%, 0.8), inset 0px 0px 2px 7px
 		hsla(350, 80%, 60%, 0.8), inset 0px 0px 3px 10px
 		hsla(350, 80%, 50%, 0.9), 0px 0px 3px 2px hsla(350, 80%, 40%, 0.9),
-		0px 0px 2px 6px hsla(350, 80%, 50%, 0.9),
-		/*0px 0px 2px 3px hsla(350,80%,60%,0.9),*/
-    -1px -1px 1px 6px hsla(350, 80%, 100%, 0.9),
-		/*0px 0px 2px 8px hsla(350,80%,60%,0.9),*/
-    0px 0px 2px 11px hsla(350, 80%, 50%, 0.9), 0px 0px 1px 12px
-		hsla(350, 80%, 40%, 0.9), 1px 3px 14px 14px hsla(350, 80%, 0%, 0.4);
+		0px 0px 2px 6px hsla(350, 80%, 50%, 0.9), -1px -1px 1px 6px
+		hsla(350, 80%, 100%, 0.9), 0px 0px 2px 11px hsla(350, 80%, 50%, 0.9),
+		0px 0px 1px 12px hsla(350, 80%, 40%, 0.9), 1px 3px 14px 14px
+		hsla(350, 80%, 0%, 0.4);
 }
-/***************************/
+
+/************Watch css***************/
+/*Formats the element with digital-body id postion*/
 #digital-body {
 	position: absolute;
 	top: 30%;
 	left: 35%;
-	/*background-size: 100%;
-	background-repeat: no-repeat;
-	overflow: hidden;*/
-	background-color: #fff !important;
 }
 
+/*Class used to add a shadow effect to text*/
 .borderdText {
 	text-shadow: .1em .1em .2em rgba(0, 0, 0, 0.4);
 	font-weight: bold;
-	/*color: #eee;
-  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black*/
 }
 
+/*Formats the battery borders position,size and color through the batter-rec id*/
 #battery-rec {
 	position: absolute;
 	width: 10%;
@@ -290,7 +217,7 @@ button.SOSbutton:active {
 	left: 63%;
 	border: solid 2px black;
 }
-
+/*Formats the battery fill position,size and color through the batter-fill id*/
 #battery-fill {
 	position: absolute;
 	width: 11%;
@@ -301,9 +228,7 @@ button.SOSbutton:active {
 	background-color: black;
 }
 
-/*
-hour&minutes
-*/
+/*Formats the time postion, color and size*/
 #rec-time {
 	position: absolute;
 	padding-top: 5%;
@@ -337,9 +262,7 @@ hour&minutes
 	padding-left: 65%;
 }
 
-/*
-string day & month
-*/
+/*Formats the string day & month postion color and size*/
 #rec-string-time {
 	position: absolute;
 	width: 100%;

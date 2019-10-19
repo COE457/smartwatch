@@ -1,4 +1,4 @@
-var NoMsg = true;
+var NoMsg = false;
 var tau;
 var idcount=0;
 (function() {
@@ -80,17 +80,12 @@ var idcount=0;
  */
 function intializeNoMsg() {
 	var temp = document.getElementById('message-view');
-
 	if (NoMsg === true) {
-//		makeMsg("MUM","Come HERE");
-//		msg.innerHTML = "<div class=\"msgFrom\" id=\"msgSender1\">Mum</div><div class=\"msgContainer\" id=\"msg1\"><div><span class=\"msg\">Lunch is ready</span></div><div><a href=\"#graphicPopupToast1\" data-rel=\"popup\"> <input type=\"checkbox\" id=\"checkbox1\" class=\"checkboxes\"</a></div><div id=\"graphicPopupToast1\" class=\"ui-popup\"><div class=\"ui-popup-content\">Dismiss Message?</div><div class=\"ui-popup-footer ui-grid-col-2\"><a id=\"2btnPopup-ok1\" data-role=\"button\" class=\"ui-btn\"onclick=\"remove(this.id)\">OK</a> <a id=\"2btnPopup-cancel1\"data-role=\"button\" class=\"ui-btn\" data-rel=\"back\"data-inline=\"true\">Cancel</a></div></div></div>";
-
-		/*
-		 * var eldiv = document.createElement('div'); var
-		 * elspan=document.createElement('span');
-		 * elspan.classList.add('noMsgs'); elspan.innerHTML = "No messages";
-		 * eldiv.appendChild(elspan); temp.appendChild(eldiv);
-		 */
+		  var eldiv = document.createElement('div'); var
+		  elspan=document.createElement('span');
+		  elspan.classList.add('noMsgs'); elspan.innerHTML = "No messages";
+		  eldiv.appendChild(elspan); temp.appendChild(eldiv);
+		 
 	}
 
 }
@@ -136,13 +131,12 @@ function makeMsg(msgFrom, messageBody) {
 	}
 
 	var msgSenderid="msgSender"+idcount;
-	var msgid= "msg"+idcount;
-	var popupid= "graphicPopupToast"+idcount;
+	var popupid= "Popup"+idcount;
 	var checkboxid="checkbox"+idcount;
 	var cancelbtnid="2btnPopup-cancel"+idcount;
 	var OKbtnid="2btnPopup-OK"+idcount;
 
-	var s = "<div class=\"msgFrom\" id=\""+msgSenderid+"\">"+msgFrom+"</div><div class=\"msgContainer\" id=\""+msgid+"\"><div><span class=\"msg\">Lunch is ready</span></div><div><a href=\"#"+popupid+"\" data-rel=\"popup\"> <input type=\"checkbox\" id=\""+checkboxid+"\" class=\"checkboxes\"</a></div><div id=\""+popupid+"\" class=\"ui-popup\"><div class=\"ui-popup-content\">Dismiss Message?</div><div class=\"ui-popup-footer ui-grid-col-2\"><a id=\""+OKbtnid+"\" data-role=\"button\" class=\"ui-btn\"onclick=\"remove(this.id)\">OK</a> <a id=\""+cancelbtnid+"\"data-role=\"button\" class=\"ui-btn\" data-rel=\"back\"data-inline=\"true\">Cancel</a></div></div></div>";
+	var s = "<div class=\"msgFrom\" id=\""+msgSenderid+"\">"+msgFrom+"</div><div class=\"msgContainer\"><div><span class=\"msg\">Lunch is ready</span></div><div><a href=\"#"+popupid+"\" data-rel=\"popup\"> <input type=\"checkbox\" id=\""+checkboxid+"\" class=\"checkboxes\"</a></div><div id=\""+popupid+"\" class=\"ui-popup\"><div class=\"ui-popup-content\">Dismiss Message?</div><div class=\"ui-popup-footer ui-grid-col-2\"><a id=\""+OKbtnid+"\" data-role=\"button\" class=\"ui-btn\"onclick=\"remove(this.id)\">OK</a> <a id=\""+cancelbtnid+"\"data-role=\"button\" class=\"ui-btn\" data-rel=\"back\"data-inline=\"true\">Cancel</a></div></div></div>";
 	var msg = document.createElement("div");
 	msg.setAttribute("id",idcount);
 	msg.innerHTML=s;
