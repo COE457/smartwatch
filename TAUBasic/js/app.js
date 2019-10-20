@@ -94,7 +94,7 @@ var id = 0;/*
  * @desciption prints no messages on the start of the app and when called
  * 
  */
-function intializeNoMsg() {
+function initializeNoMsg() {
 	var temp = document.getElementById('message-view');
 	if (NoMsg === true) {
 		var eldiv = document.createElement('div');
@@ -209,4 +209,4 @@ function sendSOSAlert() {
 //Send to parents and alert
 }
 
-window.init = intializeNoMsg();//calls intializeNoMsg once window is initilized
+window.init = initializeNoMsg();//calls intializeNoMsg once window is initilized

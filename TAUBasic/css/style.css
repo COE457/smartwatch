@@ -31,13 +31,11 @@ html, body {
 	background-position: center; /* Center the image */
 	background-image: url("/images/goofyBlur.jpg");
 	/*Set background image through the url*/
-	color: #fff; /*set text color to black*/
+	color: #fff; /*set text color to white*/
 	height: 100%;
-	width: 100%;
 	text-align: center;
 	overflow-y: auto; /*adds vertical scroll bar when needed*/
-	margin-bottom: 20px;
-	padding-bottom: 20px;
+	margin-bottom: 260px;
 }
 /*Formats the No Message String*/
 .noMsgs {
@@ -91,31 +89,7 @@ input[type="checkbox"] {
 	-webkit-mask-repeat: no-repeat;
 	background-color: rgba(112, 186, 15, 1);
 }
-/*Formats the checkbox after it has been clicked to display the check mark*/
-input[type="checkbox"]::after {
-	content: "";
-	-webkit-mask-image: url('../image/checkbox_check.png');
-	-webkit-mask-repeat: repeat;
-	-webkit-mask-position: center bottom;
-	background-color: white;
-	height: 0;
-	bottom: 0;
-	-webkit-mask-size: 100%;
-}
-/*Formats the checkmark before checking the checkbox*/
-input[type="checkbox"]:checked::before {
-	-webkit-mask-image: none;
-	background: -webkit-radial-gradient(rgba(112, 186, 15, 1) 67%,
-		transparent 71%, transparent) no-repeat;
-	background-size: 40px 40px;
-	opacity: 1;
-}
-/*Formats the checkmark after checking the checkbox*/
-input[type="checkbox"]:checked::after {
-	height: 100%;
-	width: 100%;
-	position: absolute;
-}
+
 
 /*Formats the img tag*/
 img {

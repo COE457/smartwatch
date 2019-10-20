@@ -167,15 +167,13 @@
 
 	/**
 	 * Initializes date and time. Sets to digital mode.
+	 * @private 
 	 * 
-	 * @private
 	 */
 	function init() {
 		initDigitalWatch();
 		updateDate(0);
-
 		bindEvents();
 	}
-
 	window.onload = init();
 }());

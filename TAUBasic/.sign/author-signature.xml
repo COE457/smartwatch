@@ -124,7 +124,7 @@
 </Reference>
 <Reference URI="css%2Fstyle.css">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>Qfxa9fJaLPB0jYoFrd3cnWvo5jRHH2g64zoZuocx0Fk=</DigestValue>
+<DigestValue>+zuLE1rEg5SAQHXh9Jg6Nfg7oAvFpK7hWJhrnl0yZf4=</DigestValue>
 </Reference>
 <Reference URI="images%2FDuck.jpg">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -172,7 +172,7 @@
 </Reference>
 <Reference URI="js%2Fapp.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>nGk+ERKhGDUDhY4Gk453QIF7Kt2vwLvcA0iUTehgZ1s=</DigestValue>
+<DigestValue>Xo640/ag8leWQNEJehaOp4NZqP7knsKWTiUBhZoV/dc=</DigestValue>
 </Reference>
 <Reference URI="js%2Fcircle-helper.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -184,7 +184,7 @@
 </Reference>
 <Reference URI="js%2Fwatch.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>VqrIGetJ/0ReKBSaM/uGuBRX5vA4bbjbFZFoL6SWIdI=</DigestValue>
+<DigestValue>st0b6OQwNYQglN/LTeybAEsVTZNrVH9yQccVVV7C1Ww=</DigestValue>
 </Reference>
 <Reference URI="lib%2Ftau%2FLICENSE.Flora">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -1527,11 +1527,11 @@
 </Reference>
 </SignedInfo>
 <SignatureValue>
-GIuJCYXBcdOpJuOGRb9UkGMbjQeGdcRMmjA4bkXB2qWAUFeSjwtgsvrEPiyBm+OYkJw6JSpgm4GM
-j9wSasqS8eFx0ZRp1dDMPqmQExHd/y9ZgDNhA5pOe8QbkVd1ACihBmyNdh12LQarSMJ/IE4slZ+X
-oarexw44o/Ndz0m3P5Epe0AwcjD9rE/phGdEEWzUYINXlftn6Ed4VJaBf5sADKmg1R0oO7cYGyTd
-G/Ne+zSJA94sBabvqxWIl6A/GsXFBZFHpyhH6V1D65VYd0mnIJaSNAAN//qR54p1MDKlBocTwI+M
-SE1YkubH3Hy9KFzzP6Jim6+5CB57vWBaSv9/IQ==
+jtqRhydH7rMFJbRI0o6Wi6zFls6aEhZVYYeu1chmIGHo0UcWHIMb60vvYEiXk4lPcvEoF76n+tsq
+DkFvk4FTiE3xKlvSSbVUE4VNa51vyqnwNKJriUsev/avqP2suzNChe7uAbprimzqJDCO5hQu79iF
+YF8QDjNvBWU41PFsNnwQPkogVHR8W8Tu6rhnDZQGsIUx3t2S52xTPFg+JXQO+RwtZLQ26RSAANSa
+vLMPlD6a4by01b92JF8Hp6+3AbQX/j3OKQ8sOHnV79RwlzRIpZcojIhmDXoVL9hfyQQL9Jy/4d9h
+EaCd6XumHlGR5mAIll6fy/YHqpN4YWn/WkwvAA==
 </SignatureValue>
 <KeyInfo>
 <X509Data>
