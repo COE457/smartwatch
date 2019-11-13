@@ -1,3 +1,13 @@
+.owl-carousel {
+-ms-touch-action: pan-y;
+touch-action: pan-y;
+}
+or
+.owl-carousel {
+-ms-touch-action: none;
+touch-action: none;
+}
+
 /* Formatting the html and body elements to have a width and height of 100% with no margins*/
 html, body {
 	width: 100%;

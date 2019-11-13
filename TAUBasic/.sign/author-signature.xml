@@ -112,19 +112,19 @@
 </Reference>
 <Reference URI="Msg.html">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>urX/OontKrhyAbGbuVXfTVLlS3aBZiOlpfiPxYzcZ3c=</DigestValue>
+<DigestValue>kyv12+2jMyXR0bl3I+s4vlnHE4mEdafmW9q12D/UzkM=</DigestValue>
 </Reference>
 <Reference URI="SectionChanger.html">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>cXfG+WVyF5NJBt5T4wdOb26v/CPO/tr7w0c+30nfzD4=</DigestValue>
+<DigestValue>Zn9TLq9dGanL3vfqXnROmkbjledJeNBawzbAsZgh5Rs=</DigestValue>
 </Reference>
 <Reference URI="config.xml">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>gAdz5sV6zXh2DWtkkRuoMVO/mjYqV4x0kPY4kMqxeXo=</DigestValue>
+<DigestValue>Qx8qkl07Zo4bjhXg2uYLs6FmEXrWQt9XnHBlki53IhA=</DigestValue>
 </Reference>
 <Reference URI="css%2Fstyle.css">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>+zuLE1rEg5SAQHXh9Jg6Nfg7oAvFpK7hWJhrnl0yZf4=</DigestValue>
+<DigestValue>rmIxZ39zKBv9nU8HZwBYbYzfkBRGn89VtRASpZz6pAU=</DigestValue>
 </Reference>
 <Reference URI="images%2FDuck.jpg">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -170,17 +170,41 @@
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
 <DigestValue>nd4yhRxramHST91SOBFsUQA0MWQFxBYDCnEvbtdXkBc=</DigestValue>
 </Reference>
+<Reference URI="js%2FHeartRate.js">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
+<DigestValue>eQGM1+1BqiSCReAYlhRvF+IFbTngAwDuYt1q6qQSrf4=</DigestValue>
+</Reference>
+<Reference URI="js%2FSleepMonitor.js">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
+<DigestValue>FEVKbT6MZ2P1zcFJW3MhfNpO0pavKQaT5HdBjWXK2+w=</DigestValue>
+</Reference>
 <Reference URI="js%2Fapp.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>Xo640/ag8leWQNEJehaOp4NZqP7knsKWTiUBhZoV/dc=</DigestValue>
+<DigestValue>oXv+v/DggfqpM8+JrGS33TQ/Tkc5O6wU66NG3Gw3BIs=</DigestValue>
 </Reference>
 <Reference URI="js%2Fcircle-helper.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
 <DigestValue>0+TbSqg2TfiaBBu+OpgUziLxj8xqrvGgo5rR4vZRB9U=</DigestValue>
 </Reference>
+<Reference URI="js%2Flocation.j">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
+<DigestValue>47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=</DigestValue>
+</Reference>
+<Reference URI="js%2Flocation.js">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
+<DigestValue>VEwADjp2xOB+96AlyD66VmDE+Y4utOcUlTH57PWLKzg=</DigestValue>
+</Reference>
 <Reference URI="js%2FlowBatteryCheck.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
 <DigestValue>+i5daekAbnIThj3rFOl0UxpMhcCvNBzIUCR5tkh0Flg=</DigestValue>
+</Reference>
+<Reference URI="js%2Fpedo.js">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
+<DigestValue>2Jz9ti9rg+9ehCpYsDiQPffh/hXal/VnjbMjkrB0FTY=</DigestValue>
+</Reference>
+<Reference URI="js%2Frandom">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
+<DigestValue>p+YP0ygZ9rFc/h+vyQLwhlIL0/GjkSJE6gwusTCs0Z8=</DigestValue>
 </Reference>
 <Reference URI="js%2Fwatch.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -1527,11 +1551,11 @@
 </Reference>
 </SignedInfo>
 <SignatureValue>
-jtqRhydH7rMFJbRI0o6Wi6zFls6aEhZVYYeu1chmIGHo0UcWHIMb60vvYEiXk4lPcvEoF76n+tsq
-DkFvk4FTiE3xKlvSSbVUE4VNa51vyqnwNKJriUsev/avqP2suzNChe7uAbprimzqJDCO5hQu79iF
-YF8QDjNvBWU41PFsNnwQPkogVHR8W8Tu6rhnDZQGsIUx3t2S52xTPFg+JXQO+RwtZLQ26RSAANSa
-vLMPlD6a4by01b92JF8Hp6+3AbQX/j3OKQ8sOHnV79RwlzRIpZcojIhmDXoVL9hfyQQL9Jy/4d9h
-EaCd6XumHlGR5mAIll6fy/YHqpN4YWn/WkwvAA==
+bgvvs8F/kB4Dg6vGTqUdMzopaMMtq2pkzvjdNHGrGXjp1f2F97PtsFsGxzfqjz9ZDbSEJ1OUOD+W
+fonIFazSnKSkhNbdbIe7Imvrob8Vy2oVcKzBLCAr9MSi5R4X/qdtucbtT3u6nxxHEaiP7eH+wWqe
+j5P45HQ2tHoAX4kOg03E/MCvKkGkhOSdok1yFu08Uzu+f3tObua2k8kM5eXD8beFcfT0QhzvNADj
+WSyq9YWScCQmhnydJrbN9EMms8qXcAvnQVeoVR2BTDP1Xj9+tVHSbH14NossgOg3sFaXRggflhcV
++y0bgmYP7uzji7P6amccPkTRy5PKVLsQPkIXkw==
 </SignatureValue>
 <KeyInfo>
 <X509Data>

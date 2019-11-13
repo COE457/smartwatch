@@ -1,9 +1,9 @@
 var NoMsg = false; /* Global variable set to true when there are no messages */
 var tau;/* Global Variable */
 var id = 0;/*
-				 * Global variable to set the messages id and increment it with
-				 * every message, acts as the id received from the webportal
-				 */
+			 * Global variable to set the messages id and increment it with
+			 * every message, acts as the id received from the webportal
+			 */
 
 (function() {
 	// Intializing the variables by getting elements from the dom by ID
@@ -47,21 +47,11 @@ var id = 0;/*
 	 */
 	pageIndicatorHandler = function(e) {
 		pageIndicator.setActive(e.detail.active);// sets the current page as
-													// active
+		// active
 	};
 
-	changer.addEventListener("sectionchange", pageIndicatorHandler, false);// adds
-																			// a
-																			// listener
-																			// to
-																			// changer
-																			// that
-																			// listens
-																			// to
-																			// the
-																			// change
-																			// in
-																			// sections
+	changer.addEventListener("sectionchange", pageIndicatorHandler, false);
+	// adds a listener to changer that listens to the change in sections
 
 }());
 
@@ -109,7 +99,8 @@ function initializeNoMsg() {
 }
 /**
  * @function remove
- * @desciption removes the message by id, checks if there are no msgs to call initializeNoMsg() and then calls sendPromise
+ * @desciption removes the message by id, checks if there are no msgs to call
+ *             initializeNoMsg() and then calls sendPromise
  * @param id:
  * @fires initializeNoMsg()
  * @fires sendPromise
@@ -117,29 +108,33 @@ function initializeNoMsg() {
  */
 function remove(id) {
 
-	var lastChar = id[id.length - 1];//gets the id number from the last charecter of the id string
+	var lastChar = id[id.length - 1];// gets the id number from the last
+										// charecter of the id string
 	var temp = document.getElementById('message-view');
-	document.getElementById(lastChar).remove();//removes the element with the id found
-	//if all messages are removed
+	document.getElementById(lastChar).remove();// removes the element with the
+												// id found
+	// if all messages are removed
 	if (temp.childElementCount === 0) {
-		alert("No new messages");//preview and alert
+		alert("No new messages");// preview and alert
 		NoMsg = true;
-		initializeNoMsg();//display on the screen that there are no messages
+		initializeNoMsg();// display on the screen that there are no messages
 	}
-	sendPromise(id);//send back to portal that the msg has been read
+	sendPromise(id);// send back to portal that the msg has been read
 }
 
 /**
  * @function receiveMsg
- * @description 
+ * @description
  * @fires makeMsg
  * 
  */
 function receiveMsg() {
-	//receives msg from webportal, parses the message to get the msgFrom and messageBody var
+	// receives msg from webportal, parses the message to get the msgFrom and
+	// messageBody var
 	var msgFrom, messageBody, id;
-	makeMsg(msgFrom, messageBody, id);//creates the msg HTML depending on the message body and messafe sender
-	idcount++;//increment id counter to have distinct messages
+	makeMsg(msgFrom, messageBody, id);// creates the msg HTML depending on the
+										// message body and messafe sender
+	id++;// increment id counter to have distinct messages
 
 }
 /**
@@ -152,20 +147,20 @@ function receiveMsg() {
  */
 function makeMsg(msgFrom, messageBody, id) {
 	var temp = document.getElementById('message-view');
-	//removes all child elements if NoMsg==true 
+	// removes all child elements if NoMsg==true
 	if (NoMsg === true) {
 		while (temp.childElementCount !== 0) {
 			temp.removeChild();
 		}
 		NoMsg = false;
 	}
-//creates variables to name the elements ids
+	// creates variables to name the elements ids
 	var msgSenderid = "msgSender" + id;
 	var popupid = "Popup" + id;
 	var checkboxid = "checkbox" + id;
 	var cancelbtnid = "2btnPopup-cancel" + id;
 	var OKbtnid = "2btnPopup-OK" + id;
-//creats the HTML string to be appended 
+	// creats the HTML string to be appended
 	var s = "<div class=\"msgFrom\" id=\""
 			+ msgSenderid
 			+ "\">"
@@ -181,23 +176,24 @@ function makeMsg(msgFrom, messageBody, id) {
 			+ "\" data-role=\"button\" class=\"ui-btn\"onclick=\"remove(this.id)\">OK</a> <a id=\""
 			+ cancelbtnid
 			+ "\"data-role=\"button\" class=\"ui-btn\" data-rel=\"back\"data-inline=\"true\">Cancel</a></div></div></div>";
-	//creats the msg div Element to add the HTML to
+	// creats the msg div Element to add the HTML to
 	var msg = document.createElement("div");
-	msg.setAttribute("id", idcount);//sets the id of the div element
+	msg.setAttribute("id", id);// sets the id of the div element
 	msg.innerHTML = s;// adds the HTMl inside the div element
-	temp.appendChild(msg);//appends the msg Node Element to the parent Node
+	temp.appendChild(msg);// appends the msg Node Element to the parent Node
 
 }
 /**
  * 
  * @function sendPromise
- * @desciption sends back to the web portal that the kid has accepted the message
+ * @desciption sends back to the web portal that the kid has accepted the
+ *             message
  * @param id
  * 
  */
 
 function sendPromise(id) {
-//Send back to web portal the id of the message resolved
+	// Send back to web portal the id of the message resolved
 }
 /**
  * 
@@ -206,7 +202,8 @@ function sendPromise(id) {
  * @param
  */
 function sendSOSAlert() {
-//Send to parents and alert
+	// Send to parents and alert
 }
 
-window.init = initializeNoMsg();//calls intializeNoMsg once window is initilized
+window.init = initializeNoMsg();// calls intializeNoMsg once window is
+								// initilized

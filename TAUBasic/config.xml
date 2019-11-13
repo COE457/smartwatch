@@ -7,4 +7,18 @@
     <name>KidsMonitor</name>
     <tizen:profile name="wearable"/>
     <tizen:setting hwkey-event="enable"/>
+    
+    <!-- Heart Rate -->
+    <feature name="http://tizen.org/feature/humanactivitymonitor"/> 
+    <tizen:privilege name="http://tizen.org/privilege/healthinfo"/>
+    
+    
+    <tizen:privilege name="http://tizen.org/privilege/location"/>
+
+    <feature name="http://tizen.org/privilege/location.gps"/>
+    
+     <access origin="*" subdomains= "true"></access>
+    <tizen:allow-navigation>https://api.opencagedata.com/geocode/</tizen:allow-navigation>
+    <tizen:privilege name="http://tizen.org/privilege/internet"/>
+    
 </widget>

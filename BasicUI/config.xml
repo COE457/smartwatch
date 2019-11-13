@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widget xmlns:tizen="http://tizen.org/ns/widgets" xmlns="http://www.w3.org/ns/widgets" id="http://yourdomain/BasicUI" version="1.0.0" viewmodes="maximized">
+    <tizen:application id="bqA1baKhJc.BasicUI" package="bqA1baKhJc" required_version="4.0"/>
+    <content src="index.html"/>
+    <feature name="http://tizen.org/feature/screen.size.all"/>
+    <icon src="icon.png"/>
+    <name>BasicUI</name>
+    <tizen:profile name="wearable"/>
+    
+    <tizen:privilege name="http://tizen.org/privilege/internet"/>
+    
+</widget>
