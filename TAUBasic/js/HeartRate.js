@@ -1,15 +1,41 @@
 window.onload = requestPermissions();
 var heartrate; 
+function sendMsg(body)
+{
+	$.ajax({
+		url: 'http://192.168.137.50:3001/API/locationHistory/create',
+		dataType: 'json',
+		type: 'POST',
+		contentType: 'application/json',
+		data: JSON.stringify(body),
+		processData: false,
+		success: function( data, textStatus, jQxhr ){
+			alert("User added successfully. Please login to continue")
+			console.log('hi');
+		},
+		error: function( jqXhr, textStatus, errorThrown ){
+			console.log(errorThrown);
+		}
+	});
+	
+}
 function heartFunc(){
 	//console.log("heartfun");
 	tizen.humanactivitymonitor.getHumanActivityData("HRM", successCallbackHeart, errorCallback);
 	tizen.humanactivitymonitor.getHumanActivityData("SLEEP_MONITOR", successCallbackSleep, errorCallback);
-
+	//tizen.humanactivitymonitor.setAccumulativePedometerListener("PEDOMETER", successCallbackPedo, errorCallback);
+	//tizen.addActivityRecognitionListener("PEDOMETER", successCallbackPedo, errorCallback);
+}
+function successCallbackPedo(pedometerInfo) {
+    console.log('Step status: ' + pedometerInfo.stepStatus);
+    console.log('Speed: ' + pedometerInfo.speed);
+    console.log('Walking frequency: ' + pedometerInfo.walkingFrequency);
+    /* Deregisters a previously registered listener */
+    tizen.humanactivitymonitor.unsetAccumulativePedometerListener();
 }
 
-
 function successCallbackSleep(slinfo){
-	console.log("Heart callback");
+	//console.log("Heart callback");
 	console.log(slinfo);
 	sleepStatus = slinfo.status;
 	var time = new Date().getTime();
@@ -19,15 +45,16 @@ function successCallbackSleep(slinfo){
 }
 
 function successCallbackHeart(hrminfo){
-	//console.log("Heart callback");
+	console.log("Heart callback");
 	//console.log(hrminfo);
 	heartrate = hrminfo.heartRate;
-	//var time = new Date().getTime();
+	var time = new Date().getTime();
 	//console.log(time);
-	//console.log(heartrate);
+	console.log(heartrate);
 	//console.log('OK?')
+	heartrate
+	sendMsg({"Smartwatch":"123", "date": time, "reading": heartrate });
 }
-
 
 function errorCallback(error) {
 //console.log('ee');
@@ -52,6 +79,7 @@ function errorCallback(error) {
 function successCallbackPer() {
 	tizen.humanactivitymonitor.start('HRM');
 	tizen.humanactivitymonitor.start('SLEEP_MONITOR');
+	//tizen.humanactivitymonitor.start('PEDOMETER');
 
 	console.log('succes Permision')
 	setInterval(heartFunc, 1000*1);

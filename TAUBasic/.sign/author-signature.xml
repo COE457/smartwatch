@@ -116,11 +116,11 @@
 </Reference>
 <Reference URI="SectionChanger.html">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>Zn9TLq9dGanL3vfqXnROmkbjledJeNBawzbAsZgh5Rs=</DigestValue>
+<DigestValue>qFx46b9p9/6lJHWRDBDMeDgCrX76jkImQZ0eqgAZChE=</DigestValue>
 </Reference>
 <Reference URI="config.xml">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>Qx8qkl07Zo4bjhXg2uYLs6FmEXrWQt9XnHBlki53IhA=</DigestValue>
+<DigestValue>D2PvBCDkNninAZW1m95G1sQMj+7C5ZsmI82qwMpD6+s=</DigestValue>
 </Reference>
 <Reference URI="css%2Fstyle.css">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -172,7 +172,7 @@
 </Reference>
 <Reference URI="js%2FHeartRate.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>eQGM1+1BqiSCReAYlhRvF+IFbTngAwDuYt1q6qQSrf4=</DigestValue>
+<DigestValue>Oz7Y5AqJjrQiKCE80+AKwMf4Y8SnjY9Xcy+7SiV2gmo=</DigestValue>
 </Reference>
 <Reference URI="js%2FSleepMonitor.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -1551,11 +1551,11 @@
 </Reference>
 </SignedInfo>
 <SignatureValue>
-bgvvs8F/kB4Dg6vGTqUdMzopaMMtq2pkzvjdNHGrGXjp1f2F97PtsFsGxzfqjz9ZDbSEJ1OUOD+W
-fonIFazSnKSkhNbdbIe7Imvrob8Vy2oVcKzBLCAr9MSi5R4X/qdtucbtT3u6nxxHEaiP7eH+wWqe
-j5P45HQ2tHoAX4kOg03E/MCvKkGkhOSdok1yFu08Uzu+f3tObua2k8kM5eXD8beFcfT0QhzvNADj
-WSyq9YWScCQmhnydJrbN9EMms8qXcAvnQVeoVR2BTDP1Xj9+tVHSbH14NossgOg3sFaXRggflhcV
-+y0bgmYP7uzji7P6amccPkTRy5PKVLsQPkIXkw==
+LTW1jU1nzVgFEbumoM8JXZ+5uV0vUaR3YIWIDkerZBolOQggknStJbUjmWgw7za0GnYbM2DVwYX6
+dHkmBO1oS9l3UgrIEBucEMiRSBv2Vf3ugJYTlM7S41NcW96uUZUAWJecZxLmoo+XqXj90gFCgsEY
+foFf2fwcvyy8STwHSUP3N+D1ro/RBInzCszRS0+VLbxbahd/NSwSt72ik4HBAdvgKmw4XC5/YubF
+lsPwXJe/b8Vq16jdzLsxahsp0xqmle10QxcuQjEhLGGAxITvVNm0SuKkGvU2hglHXwax5tiFgB7w
+ESX8WJe+ssMSKE+2QZVT/qffo1iwCeX3zgMmRg==
 </SignatureValue>
 <KeyInfo>
 <X509Data>

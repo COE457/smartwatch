@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <widget xmlns="http://www.w3.org/ns/widgets" xmlns:tizen="http://tizen.org/ns/widgets" id="http://yourdomain/TAUBasic" version="1.0.0" viewmodes="maximized">
+    <access origin="*" subdomains= "true"></access>
     <tizen:application id="7dIiCygWmj.TAUBasic" package="7dIiCygWmj" required_version="4.0"/>
     <content src="SectionChanger.html"/>
     <feature name="http://tizen.org/feature/screen.size.normal"/>
@@ -8,17 +9,15 @@
     <tizen:profile name="wearable"/>
     <tizen:setting hwkey-event="enable"/>
     
+    
+    <tizen:privilege name="http://tizen.org/privilege/internet"/>
     <!-- Heart Rate -->
     <feature name="http://tizen.org/feature/humanactivitymonitor"/> 
     <tizen:privilege name="http://tizen.org/privilege/healthinfo"/>
     
-    
     <tizen:privilege name="http://tizen.org/privilege/location"/>
-
     <feature name="http://tizen.org/privilege/location.gps"/>
     
-     <access origin="*" subdomains= "true"></access>
     <tizen:allow-navigation>https://api.opencagedata.com/geocode/</tizen:allow-navigation>
-    <tizen:privilege name="http://tizen.org/privilege/internet"/>
     
 </widget>
