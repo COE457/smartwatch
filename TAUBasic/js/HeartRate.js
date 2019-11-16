@@ -2,7 +2,6 @@ window.onload = requestPermissions();
 var heartrate;
 var hearRateHistoryURL = 'http://192.168.137.1:3001/API/heartRateHistory/create';
 var equipmentHistoryURL = 'http://192.168.137.1:3001/API/equipmentHistory/create';
-
 function sendMsg(body, url) {
 	$.ajax({
 		url : url,
@@ -23,8 +22,7 @@ function sendMsg(body, url) {
 function sensorFunc() {
 	tizen.humanactivitymonitor.getHumanActivityData("HRM",
 			successCallbackHeart, errorCallback);
-	tizen.humanactivitymonitor.getHumanActivityData("SLEEP_MONITOR",
-			successCallbackSleep, errorCallback);
+
 	tizen.humanactivitymonitor.getHumanActivityData("PEDOMETER",
 			successCallbackPedo, errorCallback);
 }
@@ -41,59 +39,78 @@ function successCallbackPedo(pedometerInfo) {
 	var timestamp = new Date().getTime();
 
 	var statusJson = {
-		"Smartwatch" : "82e94aeab1c552f8f251a53a9b0065e6",
+		"Smartwatch" : "16e331e82ea91fee7b03f0be9001a3cd",
 		"date" : timestamp,
 		"stepStatus" : stepStatus,
 		"speedStatus" : speedStatus,
 		"walkingStatus" : walkingStatus
 	};
-	// sendMsg(sleepJson, sleepHistoryURL);
+	// sendMsg(statusJson, sleepHistoryURL);
 
 	/* Deregisters a previously registered listener */
 	tizen.humanactivitymonitor.unsetAccumulativePedometerListener();
 }
 
-function successCallbackSleep(slinfo) {
-	sleepStatus = slinfo.status;
-	var timestamp = new Date().getTime();
-
-	var sleepJson = {
-		"Smartwatch" : "82e94aeab1c552f8f251a53a9b0065e6",
-		"date" : timestamp,
-		"sleeping" : sleepStatus
-	};
-	// sendMsg(sleepJson, sleepHistoryURL);
-
-}
+//function successCallbackSleep(slinfo) {
+//	sleepStatus = slinfo.status;
+//	var timestamp = new Date().getTime();
+//	
+//	var heartrateJson = {
+//			"Smartwatch" : "16e331e82ea91fee7b03f0be9001a3cd",
+//			"date" : timestamp,
+//			"reading" : heartrate.toString()
+//		};
+//	
+//	sendMsg(heartrateJson, hearRateHistoryURL);
+//
+//	
+//	var sleepJson = {
+////			"Smartwatch" : "16e331e82ea91fee7b03f0be9001a3cd",
+////			"date" : timestamp,
+////			"sleeping" : sleepStatus
+////		};
+//	// sendMsg(sleepJson, sleepHistoryURL);
+//
+//}
 
 function successCallbackHeart(hrminfo) {
 
 	heartrate = hrminfo.heartRate;
 	var timestamp = new Date().getTime();
 	var equippedJson;
-	var heartrateJson = {
-		"Smartwatch" : "82e94aeab1c552f8f251a53a9b0065e6",
-		"date" : timestamp,
-		"reading" : heartrate.toString()
-	};
+	
+	tizen.humanactivitymonitor.getHumanActivityData("SLEEP_MONITOR",
+			function successCallbackSleep(slinfo){
+		sleepStatus = slinfo.status;
+		var timestamp = new Date().getTime();
+		
+		var heartrateJson = {
+				"Smartwatch" : "16e331e82ea91fee7b03f0be9001a3cd",
+				"date" : timestamp,
+				"reading" :  [heartrate.toString(), sleepStatus.toString()]
+			};
+		
+		sendMsg(heartrateJson, hearRateHistoryURL);
 
-	// sendMsg(heartrateJson, hearRateHistoryURL);
+	}, errorCallback);
+			
+
 
 	if (heartrate > 0) {
 		equippedJson = {
-			"Smartwatch" : "82e94aeab1c552f8f251a53a9b0065e6",
+			"Smartwatch" : "16e331e82ea91fee7b03f0be9001a3cd",
 			"date" : timestamp,
 			"equipped" : true
 		};
-		// sendMsg(equipped, equipmentHistoryURL);
+		 sendMsg(equippedJson, equipmentHistoryURL);
 
 	} else {
 		equippedJson = {
-			"Smartwatch" : "82e94aeab1c552f8f251a53a9b0065e6",
+			"Smartwatch" : "16e331e82ea91fee7b03f0be9001a3cd",
 			"date" : timestamp,
 			"equipped" : false
 		};
-		// sendMsg(equipped, equipmentHistoryURL);
+		 sendMsg(equippedJson, equipmentHistoryURL);
 	}
 }
 
@@ -121,7 +138,7 @@ function successCallbackPer() {
 	tizen.humanactivitymonitor.start('SLEEP_MONITOR');
 	tizen.humanactivitymonitor.start('PEDOMETER');
 	console.log('succes Permision');
-	setInterval(sensorFunc, 1000 * 1);
+	setInterval(sensorFunc, 1000 * 6);
 }
 
 function requestPermissions() {

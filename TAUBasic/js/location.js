@@ -27,8 +27,8 @@ function successCallback(position) {
 	  //console.log(latitude);  
 	  //console.log(timestamp);  
 	  GetLocation(longitude, latitude);
-	  var locationJson={"Smartwatch":"82e94aeab1c552f8f251a53a9b0065e6", "location":[latitude,longitude],"date":timestamp, "currentlyThere":true};
-	//	sendMsg(locationJson, locationHistoryURL);
+	  var locationJson={"Smartwatch":"16e331e82ea91fee7b03f0be9001a3cd", "location":[latitude,longitude],"date":timestamp, "currentlyThere":true};
+		sendMsg(locationJson, locationHistoryURL);
 
 	}
 
@@ -57,7 +57,7 @@ function GetLocation(longitude, latitude){
 	  xmlhttp.send();
 }
 function successCallbackPer() {
-	setInterval(watchFunc, 1000*1);
+	setInterval(watchFunc, 1000*60);
 }
 
 function errorCallback(error) {
