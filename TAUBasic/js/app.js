@@ -4,6 +4,8 @@ var id = 0;/*
 			 * Global variable to set the messages id and increment it with
 			 * every message, acts as the id received from the webportal
 			 */
+var panicHistoryURL ="http://192.168.137.1:3001/API/panicHistory/create";
+
 
 (function() {
 	// Intializing the variables by getting elements from the dom by ID
@@ -97,6 +99,7 @@ function initializeNoMsg() {
 	}
 
 }
+
 /**
  * @function remove
  * @desciption removes the message by id, checks if there are no msgs to call
@@ -137,6 +140,7 @@ function receiveMsg() {
 	id++;// increment id counter to have distinct messages
 
 }
+
 /**
  * @function makeMsg
  * @desciption generates the message HTML to be previewed
@@ -183,27 +187,56 @@ function makeMsg(msgFrom, messageBody, id) {
 	temp.appendChild(msg);// appends the msg Node Element to the parent Node
 
 }
+
 /**
  * 
- * @function sendPromise
+ * @function sendDissmissed
  * @desciption sends back to the web portal that the kid has accepted the
  *             message
  * @param id
  * 
  */
-
-function sendPromise(id) {
+function msgDissmissed(id) {
 	// Send back to web portal the id of the message resolved
 }
+
 /**
  * 
  * @function sendSOSAlert
- * @desciption sends and Alert to parents
+ * @desciption sends and Alert to parents onClick
  * @param
+ * @fires sendMsg()
  */
-function sendSOSAlert() {
+$("#SOS").on("click", function sendSOSAlert() {
 	// Send to parents and alert
-}
+	var timestamp = new Date().getTime();
+	var panicJson={"Smartwatch":"82e94aeab1c552f8f251a53a9b0065e6", "date":timestamp};  
+	//sendMsg(panicJson, panicHistoryURL);
+});
 
+/**
+ * @function sendMsg
+ * @description sends the Msg to the server
+ * @param body, url
+ */
+function sendMsg(body, url)
+{
+	console.log(body);
+	$.ajax({
+		url: url,
+		dataType: "json",
+		type: "POST",
+		contentType: 'application/json',
+		data: JSON.stringify(body),
+		processData: false,
+		success: function( data, textStatus, jQxhr ){
+			console.log('hi');
+		},
+		error: function( jqXhr, textStatus, errorThrown ){
+			console.log(errorThrown);
+		}
+	});
+	
+}
 window.init = initializeNoMsg();// calls intializeNoMsg once window is
 								// initilized

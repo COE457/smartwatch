@@ -1,14 +1,35 @@
 window.onload = requestPermissions();
 
+var locationHistoryURL ="http://192.168.137.1:3001/API/locationHistory/create";
+function sendMsg(body, url)
+{
+	console.log(body);
+	$.ajax({
+		url:url ,
+		dataType: "json",
+		type: "POST",
+		contentType: 'application/json',
+		data: JSON.stringify(body),
+		processData: false,
+		success: function( data, textStatus, jQxhr ){
+		},
+		error: function( jqXhr, textStatus, errorThrown ){
+			console.log(errorThrown);
+		}
+	});
+}
 function successCallback(position) {
     //console.log(position);
     var timestamp=position.timestamp;
 	var longitude=position.coords.longitude; 
 	var latitude= position.coords.latitude;
-	  console.log(longitude);
-	  console.log(latitude);  
-	  console.log(timestamp);  
+	  //console.log(longitude);
+	  //console.log(latitude);  
+	  //console.log(timestamp);  
 	  GetLocation(longitude, latitude);
+	  var locationJson={"Smartwatch":"82e94aeab1c552f8f251a53a9b0065e6", "location":[latitude,longitude],"date":timestamp, "currentlyThere":true};
+	//	sendMsg(locationJson, locationHistoryURL);
+
 	}
 
 function GetLocation(longitude, latitude){
@@ -73,7 +94,6 @@ function stopWatchFunc() {
 }
 
 function requestPermissions(){
-	console.log("I was called");
 tizen.ppm.requestPermission("http://tizen.org/privilege/location",successCallbackPer, errorCallback);
 }
 

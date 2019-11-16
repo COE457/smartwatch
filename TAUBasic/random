@@ -1,0 +1,263 @@
+//	  var xmlhttp=null;
+//	   xmlhttp = new XMLHttpRequest();
+//	  xmlhttp.onreadystatechange = function () {
+//		  if(xmlhttp.reasdyState == xmlhttp.DONE)
+//			 alert(xmlhttp.responseText);
+//		  else
+//			  alert(xmlhttp.responseText);
+//	  }
+//	  xmlhttp.onerror= function(e){
+//		  alert("onerror: " +xmlhttp.statusText);
+//
+//	  };
+//	  xmlhttp.open("GET",'https://api.opencagedata.com/geocode/v1/json?q='+lat+','+long+'&pretty=1&key=32ebbd8dfcf2487983263e43187d97de', false);
+//	  xmlhttp.send();
+
+--------------------------
+
+
+
+//
+//var accSensor;
+//var htrt;
+//var slp;
+//var tim;
+//var x,y,z;
+//var obj;
+//
+////var webSocketUrl = "ws://192.168.0.159:8080";
+////var webSocket;
+//
+//function main() {
+//	console.log("heh1");
+//	accSensor = tizen.sensorservice.getDefaultSensor('ACCELERATION');
+//	console.log(accSensor);
+//	console.log("heh2");
+//	accSensor.start(accst);
+//	console.log("heh3");
+//
+//  datarec();
+//  console.log("heh");
+//
+//}
+//
+//function datarec(){
+//	console.log("reached");
+//	tizen.humanactivitymonitor.getHumanActivityData('HRM', onsuccessHT);
+//	tizen.humanactivitymonitor.getHumanActivityData('SLEEP_MONITOR', onsuccessSL);
+//	accSensor.getAccelerationSensorData(onsuccessAcc);
+//
+//	prepmsg();
+//
+//	setTimeout(datarec, 1000);
+//}
+//
+//function prepmsg(){
+//
+//	obj = {
+//			"heartrate"		:	htrt,
+//			"sleepstatus"	:	slp,
+//			"time"			:	tim,
+//			"accelerometer"	:	{
+//				"x"	:	x,
+//				"y"	:	y,
+//				"z"	:	z
+//			}
+//	};
+//
+//	console.log(obj);
+//	//sendMessage(obj);
+//}
+//
+////function sendMessage(msg) {
+////  if (webSocket.readyState === 1) {
+////      webSocket.send(msg);
+////  }
+////}
+//
+//function onsuccessAcc(accinfo){
+//	x = accinfo.x;
+//	y = accinfo.y;
+//	z = accinfo.z;
+//}
+//
+//function onsuccessHT(hrminfo){
+//	console.log("hehe");
+//	htrt = hrminfo.heartRate;
+//}
+//
+//function onsuccessSL(slinfo){
+//	slp = slinfo.status;
+//	tim = slinfo.timestamp;
+//}
+//
+//
+//function onErrorPermission(){
+//  console.log('No permission to access health info');
+//  main();
+//}
+//
+
+//function onsuccessPermission(){
+//  console.log('HRM permission succeeded');
+//  tizen.humanactivitymonitor.start('HRM');
+//  tizen.humanactivitymonitor.start('SLEEP_MONITOR');
+//  //webSocket = new WebSocket(webSocketUrl,'sensor');
+//  console.log("sock");
+//  main();
+//}
+//
+//function accst(){
+//	console.log('Accelerometer started');
+//}
+//
+
+
+//heartrate
+//
+//
+//function onSuccess() {
+//	var myCallbackInterval = 1000;
+//	var mySampleInterval = 1000;
+//
+//  function onchangedCB(hrmInfo) {
+//  	console.log('this callback is called every ' + myCallbackInterval + ' milliseconds');
+//      console.log('heart rate:' + hrmInfo.heartRate);
+//     // tizen.humanactivitymonitor.stop('HRM');
+//
+//  }
+//  function onerrorCB(error) {
+//      console.log('Error occurred. Name:' + error.name + ', message: ' + error.message);
+//  }
+//
+//  var option = {
+//  	    'callbackInterval': myCallbackInterval,
+//  	    'sampleInterval': mySampleInterval
+//  	};
+//
+//  tizen.humanactivitymonitor.start('HRM', onchangedCB, onerrorCB,option);
+//
+//  function onchangedCB(sleepInfo) {
+//      console.log('Sleep status: ' + sleepInfo.status);
+//      console.log('Timestamp: ' + sleepInfo.timestamp + ' milliseconds');
+//
+//  }
+//
+//  tizen.humanactivitymonitor.start('SLEEP_MONITOR', onchangedCBSleep, onerrorCB,option);
+//}
+//
+//function onError(e) {
+//
+//	console.log("error " + JSON.stringify(e));
+//}
+//
+//
+//tizen.ppm.requestPermission("http://tizen.org/privilege/healthinfo",onSuccess, onError);
+//
+//
+
+
+
+//
+//window.onload = requestPermissions();
+//
+//var accSensor;
+//var htrt;
+//var slp;
+//var tim;
+//var x,y,z;
+//var obj;
+//
+////var webSocketUrl = "ws://192.168.0.159:8080";
+////var webSocket;
+////
+//function main() {
+//	console.log("heh1");
+//	accSensor = tizen.sensorservice.getDefaultSensor('ACCELERATION');
+//	console.log(accSensor);
+//	console.log("heh2");
+//	accSensor.start(accst);
+//	console.log("heh3");
+//
+//  datarec();
+//  console.log("heh");
+//
+//}
+//
+//function datarec(){
+//	console.log("reached");
+//	tizen.humanactivitymonitor.getHumanActivityData('HRM', onsuccessHT);
+//	tizen.humanactivitymonitor.getHumanActivityData('SLEEP_MONITOR', onsuccessSL);
+//	accSensor.getAccelerationSensorData(onsuccessAcc);
+//
+//	prepmsg();
+//
+//	setTimeout(datarec, 1000);
+//}
+//
+//function prepmsg(){
+//
+//	obj = {
+//			"heartrate"		:	htrt,
+//			"sleepstatus"	:	slp,
+//			"time"			:	tim,
+//			"accelerometer"	:	{
+//				"x"	:	x,
+//				"y"	:	y,
+//				"z"	:	z
+//			}
+//	};
+//
+//	console.log(obj);
+//sendMessage(obj);
+//}
+////
+////function sendMessage(msg) {
+//////  if (webSocket.readyState === 1) {
+//////      webSocket.send(msg);
+//////  }
+//////}
+////
+//function onsuccessAcc(accinfo){
+//	x = accinfo.x;
+//	y = accinfo.y;
+//	z = accinfo.z;
+//}
+////
+//function onsuccessHT(hrminfo){
+//	console.log("hehe");
+//	htrt = hrminfo.heartRate;
+//}
+//
+//function onsuccessSL(slinfo){
+//	slp = slinfo.status;
+//	tim = slinfo.timestamp;
+//}
+//
+//
+//function onErrorPermission(){
+//  console.log('No permission to access health info');
+//  main();
+//}
+//
+//function onsuccessPermission(){
+//  console.log('HRM permission succeeded');
+//  tizen.humanactivitymonitor.start('HRM');
+//  tizen.humanactivitymonitor.start('SLEEP_MONITOR');
+//  //webSocket = new WebSocket(webSocketUrl,'sensor');
+//  console.log("sock");
+//  main();
+//}
+//
+//function accst(){
+//	console.log('Accelerometer started');
+//}
+//
+//function requestPermissions(){
+//	tizen.ppm.requestPermission("http://tizen.org/privilege/healthinfo", onsuccessPermission, onErrorPermission);
+//
+//}
+
+
+//heartrate
+

@@ -1,242 +1,132 @@
 window.onload = requestPermissions();
-var heartrate; 
-function sendMsg(body)
-{
+var heartrate;
+var hearRateHistoryURL = 'http://192.168.137.1:3001/API/heartRateHistory/create';
+var equipmentHistoryURL = 'http://192.168.137.1:3001/API/equipmentHistory/create';
+
+function sendMsg(body, url) {
 	$.ajax({
-		url: 'http://192.168.137.50:3001/API/locationHistory/create',
-		dataType: 'json',
-		type: 'POST',
-		contentType: 'application/json',
-		data: JSON.stringify(body),
-		processData: false,
-		success: function( data, textStatus, jQxhr ){
-			alert("User added successfully. Please login to continue")
-			console.log('hi');
+		url : url,
+		dataType : "json",
+		type : "POST",
+		contentType : 'application/json',
+		data : JSON.stringify(body),
+		processData : false,
+		success : function(data, textStatus, jQxhr) {
+			console.log(data);
 		},
-		error: function( jqXhr, textStatus, errorThrown ){
+		error : function(jqXhr, textStatus, errorThrown) {
 			console.log(errorThrown);
 		}
 	});
-	
 }
-function heartFunc(){
-	//console.log("heartfun");
-	tizen.humanactivitymonitor.getHumanActivityData("HRM", successCallbackHeart, errorCallback);
-	tizen.humanactivitymonitor.getHumanActivityData("SLEEP_MONITOR", successCallbackSleep, errorCallback);
-	//tizen.humanactivitymonitor.setAccumulativePedometerListener("PEDOMETER", successCallbackPedo, errorCallback);
-	//tizen.addActivityRecognitionListener("PEDOMETER", successCallbackPedo, errorCallback);
+
+function sensorFunc() {
+	tizen.humanactivitymonitor.getHumanActivityData("HRM",
+			successCallbackHeart, errorCallback);
+	tizen.humanactivitymonitor.getHumanActivityData("SLEEP_MONITOR",
+			successCallbackSleep, errorCallback);
+	tizen.humanactivitymonitor.getHumanActivityData("PEDOMETER",
+			successCallbackPedo, errorCallback);
 }
+
 function successCallbackPedo(pedometerInfo) {
-    console.log('Step status: ' + pedometerInfo.stepStatus);
-    console.log('Speed: ' + pedometerInfo.speed);
-    console.log('Walking frequency: ' + pedometerInfo.walkingFrequency);
-    /* Deregisters a previously registered listener */
-    tizen.humanactivitymonitor.unsetAccumulativePedometerListener();
+	console.log('Step status: ' + pedometerInfo.stepStatus);
+	console.log('Speed: ' + pedometerInfo.speed);
+	console.log('Walking frequency: ' + pedometerInfo.walkingFrequency);
+
+	var stepStatus = pedometerInfo.stepStatus;
+	var speedStatus = pedometerInfo.speed;
+	var walkingStatus = pedometerInfo.walkingFrequency;
+
+	var timestamp = new Date().getTime();
+
+	var statusJson = {
+		"Smartwatch" : "82e94aeab1c552f8f251a53a9b0065e6",
+		"date" : timestamp,
+		"stepStatus" : stepStatus,
+		"speedStatus" : speedStatus,
+		"walkingStatus" : walkingStatus
+	};
+	// sendMsg(sleepJson, sleepHistoryURL);
+
+	/* Deregisters a previously registered listener */
+	tizen.humanactivitymonitor.unsetAccumulativePedometerListener();
 }
 
-function successCallbackSleep(slinfo){
-	//console.log("Heart callback");
-	console.log(slinfo);
+function successCallbackSleep(slinfo) {
 	sleepStatus = slinfo.status;
-	var time = new Date().getTime();
-	console.log(time);
-	//console.log(heartrate);
-	//console.log('OK?')
+	var timestamp = new Date().getTime();
+
+	var sleepJson = {
+		"Smartwatch" : "82e94aeab1c552f8f251a53a9b0065e6",
+		"date" : timestamp,
+		"sleeping" : sleepStatus
+	};
+	// sendMsg(sleepJson, sleepHistoryURL);
+
 }
 
-function successCallbackHeart(hrminfo){
-	console.log("Heart callback");
-	//console.log(hrminfo);
+function successCallbackHeart(hrminfo) {
+
 	heartrate = hrminfo.heartRate;
-	var time = new Date().getTime();
-	//console.log(time);
-	console.log(heartrate);
-	//console.log('OK?')
-	heartrate
-	sendMsg({"Smartwatch":"123", "date": time, "reading": heartrate });
+	var timestamp = new Date().getTime();
+	var equippedJson;
+	var heartrateJson = {
+		"Smartwatch" : "82e94aeab1c552f8f251a53a9b0065e6",
+		"date" : timestamp,
+		"reading" : heartrate.toString()
+	};
+
+	// sendMsg(heartrateJson, hearRateHistoryURL);
+
+	if (heartrate > 0) {
+		equippedJson = {
+			"Smartwatch" : "82e94aeab1c552f8f251a53a9b0065e6",
+			"date" : timestamp,
+			"equipped" : true
+		};
+		// sendMsg(equipped, equipmentHistoryURL);
+
+	} else {
+		equippedJson = {
+			"Smartwatch" : "82e94aeab1c552f8f251a53a9b0065e6",
+			"date" : timestamp,
+			"equipped" : false
+		};
+		// sendMsg(equipped, equipmentHistoryURL);
+	}
 }
 
 function errorCallback(error) {
-//console.log('ee');
-	  switch (error.code) {
-	    case error.PERMISSION_DENIED:         
-	      console.log("User denied the request for heartrate.");
-	      break;
-	//FIX HERE
-	    case error.POSITION_UNAVAILABLE:
-	      console.log("Location information is unavailable.");
-	      break;
-	    case error.TIMEOUT:
-	      console.log("The request to get user location timed out.");
-	      break;
-	    case error.UNKNOWN_ERROR:
-	      console.log("An unknown error occurred.");
-	      break;
-	   }
+	// console.log('ee');
+	switch (error.code) {
+	case error.PERMISSION_DENIED:
+		console.log("User denied the request for heartrate.");
+		break;
+	// FIX HERE
+	case error.POSITION_UNAVAILABLE:
+		console.log("Location information is unavailable.");
+		break;
+	case error.TIMEOUT:
+		console.log("The request to get user location timed out.");
+		break;
+	case error.UNKNOWN_ERROR:
+		console.log("An unknown error occurred.");
+		break;
 	}
-
+}
 
 function successCallbackPer() {
 	tizen.humanactivitymonitor.start('HRM');
 	tizen.humanactivitymonitor.start('SLEEP_MONITOR');
-	//tizen.humanactivitymonitor.start('PEDOMETER');
-
-	console.log('succes Permision')
-	setInterval(heartFunc, 1000*1);
+	tizen.humanactivitymonitor.start('PEDOMETER');
+	console.log('succes Permision');
+	setInterval(sensorFunc, 1000 * 1);
 }
 
-function requestPermissions(){
-	tizen.ppm.requestPermission("http://tizen.org/privilege/healthinfo",successCallbackPer , errorCallback);
+function requestPermissions() {
+	tizen.ppm.requestPermission("http://tizen.org/privilege/healthinfo",
+			successCallbackPer, errorCallback);
 	console.log("request permission");
 
 }
-
-
-//heartrate
-//
-//
-//function onSuccess() {
-//	var myCallbackInterval = 1000;
-//	var mySampleInterval = 1000;
-//	
-//  function onchangedCB(hrmInfo) {
-//  	console.log('this callback is called every ' + myCallbackInterval + ' milliseconds');
-//      console.log('heart rate:' + hrmInfo.heartRate);
-//     // tizen.humanactivitymonitor.stop('HRM');
-//      
-//  }
-//  function onerrorCB(error) {
-//      console.log('Error occurred. Name:' + error.name + ', message: ' + error.message);
-//  }
-//  
-//  var option = {
-//  	    'callbackInterval': myCallbackInterval,
-//  	    'sampleInterval': mySampleInterval
-//  	};
-//
-//  tizen.humanactivitymonitor.start('HRM', onchangedCB, onerrorCB,option);
-//    
-//  function onchangedCB(sleepInfo) {
-//      console.log('Sleep status: ' + sleepInfo.status);
-//      console.log('Timestamp: ' + sleepInfo.timestamp + ' milliseconds');
-// 
-//  }
-//
-//  tizen.humanactivitymonitor.start('SLEEP_MONITOR', onchangedCBSleep, onerrorCB,option);
-//}
-//
-//function onError(e) {
-//  
-//	console.log("error " + JSON.stringify(e));
-//}
-//
-//
-//tizen.ppm.requestPermission("http://tizen.org/privilege/healthinfo",onSuccess, onError);
-//
-//
-
-
-
-//
-//window.onload = requestPermissions();
-//
-//var accSensor;	
-//var htrt;
-//var slp;
-//var tim;
-//var x,y,z;
-//var obj;
-//
-////var webSocketUrl = "ws://192.168.0.159:8080";
-////var webSocket; 
-////
-//function main() {
-//	console.log("heh1");
-//	accSensor = tizen.sensorservice.getDefaultSensor('ACCELERATION');
-//	console.log(accSensor);
-//	console.log("heh2");
-//	accSensor.start(accst);
-//	console.log("heh3");
-//  
-//  datarec();
-//  console.log("heh");
-//
-//}
-//
-//function datarec(){
-//	console.log("reached");
-//	tizen.humanactivitymonitor.getHumanActivityData('HRM', onsuccessHT);
-//	tizen.humanactivitymonitor.getHumanActivityData('SLEEP_MONITOR', onsuccessSL);
-//	accSensor.getAccelerationSensorData(onsuccessAcc);
-//	
-//	prepmsg();
-//	
-//	setTimeout(datarec, 1000);
-//}
-//
-//function prepmsg(){
-//	
-//	obj = {
-//			"heartrate"		:	htrt,
-//			"sleepstatus"	:	slp,
-//			"time"			:	tim,
-//			"accelerometer"	:	{
-//				"x"	:	x,
-//				"y"	:	y,
-//				"z"	:	z
-//			}
-//	};
-//	
-//	console.log(obj);
-//sendMessage(obj);
-//}
-////
-////function sendMessage(msg) {
-//////  if (webSocket.readyState === 1) {
-//////      webSocket.send(msg);
-//////  }
-//////}
-////
-//function onsuccessAcc(accinfo){
-//	x = accinfo.x;
-//	y = accinfo.y;
-//	z = accinfo.z;
-//}
-////
-//function onsuccessHT(hrminfo){
-//	console.log("hehe");
-//	htrt = hrminfo.heartRate;
-//}
-//
-//function onsuccessSL(slinfo){
-//	slp = slinfo.status;
-//	tim = slinfo.timestamp;
-//}
-//
-//
-//function onErrorPermission(){
-//  console.log('No permission to access health info');
-//  main();
-//}
-//
-//function onsuccessPermission(){
-//  console.log('HRM permission succeeded');
-//  tizen.humanactivitymonitor.start('HRM');
-//  tizen.humanactivitymonitor.start('SLEEP_MONITOR');
-//  //webSocket = new WebSocket(webSocketUrl,'sensor');
-//  console.log("sock");
-//  main();
-//}
-//
-//function accst(){
-//	console.log('Accelerometer started');
-//}
-//
-//function requestPermissions(){
-//	tizen.ppm.requestPermission("http://tizen.org/privilege/healthinfo", onsuccessPermission, onErrorPermission);
-//	
-//}
-
-
-//heartrate
-
