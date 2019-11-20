@@ -210,7 +210,7 @@ function msgDissmissed(id) {
 $("#SOS").on("click", function sendSOSAlert() {
 	// Send to parents and alert
 	var timestamp = new Date().getTime();
-	var panicJson={"Smartwatch":"82e94aeab1c552f8f251a53a9b0065e6", "date":timestamp, "dismissed":"0"};  
+	var panicJson={"Smartwatch":"16e331e82ea91fee7b03f0be9017903a", "date":timestamp, "dismissed":"0"};  
 	sendMsg(panicJson, panicHistoryURL);
 });
 

@@ -261,3 +261,52 @@
 
 //heartrate
 
+
+//function successCallbackSleep(slinfo) {
+//	sleepStatus = slinfo.status;
+//	var timestamp = new Date().getTime();
+//
+//	var heartrateJson = {
+//			"Smartwatch" : "16e331e82ea91fee7b03f0be9001a3cd",
+//			"date" : timestamp,
+//			"reading" : heartrate.toString()
+//		};
+//
+//	sendMsg(heartrateJson, hearRateHistoryURL);
+//
+//
+//	var sleepJson = {
+////			"Smartwatch" : "16e331e82ea91fee7b03f0be9001a3cd",
+////			"date" : timestamp,
+////			"sleeping" : sleepStatus
+////		};
+//	// sendMsg(sleepJson, sleepHistoryURL);
+//
+//}
+
+
+
+
+function successCallbackPedo(pedometerInfo) {
+	console.log('Step status: ' + pedometerInfo.stepStatus);
+	console.log('Speed: ' + pedometerInfo.speed);
+	console.log('Walking frequency: ' + pedometerInfo.walkingFrequency);
+
+	var stepStatus = pedometerInfo.stepStatus;
+	var speedStatus = pedometerInfo.speed;
+	var walkingStatus = pedometerInfo.walkingFrequency;
+
+	var timestamp = new Date().getTime();
+
+	var statusJson = {
+		"Smartwatch" : "16e331e82ea91fee7b03f0be9001a3cd",
+		"date" : timestamp,
+		"stepStatus" : stepStatus,
+		"speedStatus" : speedStatus,
+		"walkingStatus" : walkingStatus
+	};
+	// sendMsg(statusJson, sleepHistoryURL);
+
+	/* Deregisters a previously registered listener */
+	tizen.humanactivitymonitor.unsetAccumulativePedometerListener();
+}
