@@ -26,7 +26,7 @@
 .metadata/.plugins/org.tizen.common.sign/migrated__DEL__47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=
 .metadata/version.ini__DEL__/30JAmllC3Yb9Z8NkBQE2yy4eTMqIMNg531BBQ8/3fA=
 Msg.html__DEL__kyv12+2jMyXR0bl3I+s4vlnHE4mEdafmW9q12D/UzkM=
-SectionChanger.html__DEL__ntTmrvpun0mDy336s0c/glFe3k19FLbeMu09PLB8ZT8=
+SectionChanger.html__DEL__CO54vLbqUjz/rt2tAaXJaPQgsTsBMf5DMZU0QZO9Ngs=
 config.xml__DEL__zgDbnySYrDQAxRYB5kAwK6J3AC9NKw0NtJdX+GuWA/Q=
 css/style.css__DEL__65TpKqnRRBZ7O8v2Vt781abGur3xMpNzXoMtv/4Ouq4=
 images/Duck.jpg__DEL__09BRYNJHRFL6226Lsw81YRL9qWnusSczzfLjDMv95io=
@@ -46,7 +46,8 @@ js/bluetooth.js__DEL__KOK9Enhn+rG9DSPXix1zPoMBGGWYGn2LIvKRpsv9FsY=
 js/circle-helper.js__DEL__0+TbSqg2TfiaBBu+OpgUziLxj8xqrvGgo5rR4vZRB9U=
 js/communication.js__DEL__47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=
 js/jquery.min.js__DEL__SSAowT9BCvZMnlRfFcPjusR965fQOPWNRE5s7fz489s=
-js/lightSensor.js__DEL__dVp7u4QTNFqf1Uurj19gdRQkqrG9eLgqP6LxTaVQjTs=
+js/lightSensor.js__DEL__JQw77asbp9l65maHhcQsccMRqP7PnNMvIMASbfWD5Fc=
+js/lightSensorMQTT.js__DEL__sTJo636EobBLIXo9eCORECkZe6LRlguDEIfKLl1An3M=
 js/location.js__DEL__aM2VE9Ql8d0Z92rncic/jqJm3nHArJhO88Eg7cQsPA4=
 js/lowBatteryCheck.js__DEL__+i5daekAbnIThj3rFOl0UxpMhcCvNBzIUCR5tkh0Flg=
 js/mqtt.js__DEL__0WXiZQD3LtOF8cS2l9vtTyv5ySjAw1QaTsWpUcbsWaw=
@@ -385,4 +386,4 @@ lib/tau/wearable/theme/default/tau.min.template__DEL__F3LV719Xo0syld4+Rf+jC3F2yG
 lib/tau/wearable/theme/default/tau.template__DEL__sXrngOfW/l0AOaZdzTvWH18aAS4i5JBCJyBI61aABMQ=
 random__DEL__Cq2lQ4zXU7QPmX5CrJc/EfuOOgEqZr6iU9P/toI0rbw=
 trans_icon (1) (1).png__DEL__nd4yhRxramHST91SOBFsUQA0MWQFxBYDCnEvbtdXkBc=
-author-signature.xml__DEL__Eh7JRJjTwLGg2xCQWq87AFywHxAbXtF7JyF9ewxUJ58=
+author-signature.xml__DEL__Z4L2SB35kMVA77FQdRDGq8PR95mAYCGxiN8UiBV4DNk=

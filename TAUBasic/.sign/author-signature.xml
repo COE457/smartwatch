@@ -116,7 +116,7 @@
 </Reference>
 <Reference URI="SectionChanger.html">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>ntTmrvpun0mDy336s0c/glFe3k19FLbeMu09PLB8ZT8=</DigestValue>
+<DigestValue>CO54vLbqUjz/rt2tAaXJaPQgsTsBMf5DMZU0QZO9Ngs=</DigestValue>
 </Reference>
 <Reference URI="config.xml">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -196,7 +196,11 @@
 </Reference>
 <Reference URI="js%2FlightSensor.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>dVp7u4QTNFqf1Uurj19gdRQkqrG9eLgqP6LxTaVQjTs=</DigestValue>
+<DigestValue>JQw77asbp9l65maHhcQsccMRqP7PnNMvIMASbfWD5Fc=</DigestValue>
+</Reference>
+<Reference URI="js%2FlightSensorMQTT.js">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
+<DigestValue>sTJo636EobBLIXo9eCORECkZe6LRlguDEIfKLl1An3M=</DigestValue>
 </Reference>
 <Reference URI="js%2Flocation.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -1559,11 +1563,11 @@
 </Reference>
 </SignedInfo>
 <SignatureValue>
-YP2KaK6/Bmp8n21BEnaivjfUBJZpiH9N2PXFMTyxRLZ6mEWXz3gx0L2nRIKL5tQmH/bR5R5Kv276
-FCC5fjCwGWsTm5dI4PUkixXgH8Mzih+QIFsy6IQrrg3sKgstDalXlTSG5480gCOrJsQ1IKvFwKSm
-QDBY8YNPZb8+rC8WnSBkamDj8gMHPJXfKC3k6n7wa6bYJxrrIw2ttm9EGGrr6PZr2lU7NGDFTukd
-KhYbto4tzqKwWcxnU0h8aRcZdsgq1yhytpKA0Nt5NTiRJklqxdk9HklsANeH4nba46O58gtaXSmJ
-dWfD6OoeEU+RXF+ccLDx9vDIRpgFkmD5DTPFOw==
+VVgundhJe9iiJvZENvlOFwplIjB8E8g6lEImR0I2BlSMQdKz+AWgavKthudYGUISm59Q2QAqqhR0
++ddZmf9e23XbS2rfKCpTPMVzKKxX72l1mabvV6BaLs7QwJgfL7a/EJZgfZnSYxAznXSLLdslUr9a
+LNM4zIQfyoyszep86g1yucWr+En8fvyB8RscWFtMAW7Xm5164OSZhtHLCp8588AWnaDEzLOCM5Vz
+B9CA8HZXlEaK7wAIheyEHAKSZ2lEMGQxst0vmE2QB/AKOs/reLbk4pqwJmMOENXhQxdPTgvdA2UG
+siDvuFOeKs02bLPDEfC5tToiryhDOE9DS33WHg==
 </SignatureValue>
 <KeyInfo>
 <X509Data>
