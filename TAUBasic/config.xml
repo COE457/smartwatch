@@ -1,26 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <widget xmlns="http://www.w3.org/ns/widgets" xmlns:tizen="http://tizen.org/ns/widgets" id="http://yourdomain/TAUBasic" version="1.0.0" viewmodes="maximized">
-    <access origin="*" subdomains= "true"></access>
+    <access origin="*" subdomains="true"></access>
+    <tizen:allow-navigation>https://api.opencagedata.com/geocode/</tizen:allow-navigation>
     <tizen:application id="7dIiCygWmj.TAUBasic" package="7dIiCygWmj" required_version="4.0"/>
     <content src="SectionChanger.html"/>
     <feature name="http://tizen.org/feature/screen.size.normal"/>
+    <feature name="http://tizen.org/feature/humanactivitymonitor"/>
+    <feature name="http://tizen.org/privilege/location.gps"/>
+    <feature name="http://tizen.org/feature/sensor.photometer"/>
+    <feature name="http://tizen.org/feature/network.bluetooth"/>
+    <feature name="http://tizen.org/feature/network.bluetooth.le"/>
     <icon src="trans_icon (1) (1).png"/>
     <name>KidsMonitor</name>
+    <tizen:privilege name="http://tizen.org/privilege/bluetooth"/>
+    <tizen:privilege name="http://tizen.org/privilege/power"/>
+    <tizen:privilege name="http://tizen.org/privilege/system"/>
+    <tizen:privilege name="http://tizen.org/privilege/telephony"/>
+    <tizen:privilege name="http://tizen.org/privilege/internet"/>
+    <tizen:privilege name="http://tizen.org/privilege/healthinfo"/>
+    <tizen:privilege name="http://tizen.org/privilege/location"/>
     <tizen:profile name="wearable"/>
     <tizen:setting hwkey-event="enable"/>
-    
-    
-    <tizen:privilege name="http://tizen.org/privilege/internet"/>
-    <!-- Heart Rate -->
-    <feature name="http://tizen.org/feature/humanactivitymonitor"/> 
-    <tizen:privilege name="http://tizen.org/privilege/healthinfo"/>
-    
-    <tizen:privilege name="http://tizen.org/privilege/location"/>
-    <feature name="http://tizen.org/privilege/location.gps"/>
-    
-    <tizen:allow-navigation>https://api.opencagedata.com/geocode/</tizen:allow-navigation>
-    
-    
-        <feature name="http://tizen.org/feature/sensor.photometer"/>
-    
 </widget>

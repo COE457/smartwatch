@@ -2,8 +2,9 @@
 <html>
 <head>
 <meta
-	content="width=device-width, initial-scale=1,  maximum-scale=1.0, user-scalable=no" name="viewport" />
-	
+	content="width=device-width, initial-scale=1,  maximum-scale=1.0, user-scalable=no"
+	name="viewport" />
+
 <title>Kids Monitoring System</title>
 
 <link href="../../../lib/tau/wearable/theme/default/tau.css"
@@ -71,7 +72,7 @@
 								</div>
 								<div>
 									<!-- a link to the Popup which will show once the checkbox is checked-->
-									<a href="#Popup1" data-rel="popup"> <input type="checkbox"
+									<a href="#Popup1" > <input type="checkbox"
 										id="checkbox1" class="checkboxes">
 									</a>
 								</div>
@@ -81,18 +82,16 @@
 									<!-- Popup message -->
 									<div class="ui-popup-footer ui-grid-col-2">
 										<!-- Popup footed -->
-										<a id="2btnPopup-ok1" data-role="button" class="ui-btn"
-											onclick="remove(this.id)">OK</a>
+										<a id="btnPopup-ok1" data-role="button"
+											class="ui-btn dismiss">OK</a>
 										<!-- Clicking on Ok will call the java scrip remove function depnding on the id -->
-										<a id="2btnPopup-cancel1" data-role="button" class="ui-btn"
+										<a id="btnPopup-cancel1" data-role="button" class="ui-btn "
 											data-rel="back" data-inline="true">Cancel</a>
 										<!-- Clicking on cancel will go back to the page -->
 									</div>
 								</div>
 							</div>
 						</div>
-
-						<!-- Sample message 2 -->
 						<div id="2">
 							<div class="msgFrom" id="msgSender2">Dad</div>
 							<div class="msgContainer">
@@ -100,24 +99,22 @@
 									<span class="msg">Go to sleep</span>
 								</div>
 								<div>
-									<a href="#Popup2" data-rel="popup"> <input type="checkbox"
+									<a href="#Popup2" > <input type="checkbox"
 										id="checkbox2" class="checkboxes">
 									</a>
 								</div>
 								<div id="Popup2" class="ui-popup ">
 									<div class="ui-popup-content">Dismiss Message?</div>
 									<div class="ui-popup-footer ui-grid-col-2">
-										<a id="2btnPopup-ok2" data-role="button" class="ui-btn"
-											onclick="remove(this.id)">OK</a> <a id="2btnPopup-cancel2"
-											data-role="button" class="ui-btn" data-rel="back"
-											data-inline="true">Cancel</a>
+										<a id="btnPopup-ok2" data-role="button"
+											class="ui-btn dismiss">OK</a> <a
+											id="btnPopup-cancel2" data-role="button" class="ui-btn"
+											data-rel="back" data-inline="true">Cancel</a>
 
 									</div>
 								</div>
 							</div>
 						</div>
-
-						<!-- Sample message 3 -->
 						<div id="3">
 							<div class="msgFrom" id="msgSender3">Mum</div>
 							<div class="msgContainer">
@@ -125,17 +122,18 @@
 									<span class="msg">Come Here</span>
 								</div>
 								<div>
-									<a href="#Popup3" data-rel="popup"> <input type="checkbox"
+									<a href="#Popup3" > <input type="checkbox"
 										id="checkbox-news3" class="checkboxes">
 									</a>
 								</div>
 								<div id="Popup3" class="ui-popup ">
 									<div class="ui-popup-content">Dismiss Message?</div>
 									<div class="ui-popup-footer ui-grid-col-2">
-										<a id="2btnPopup-ok3" data-role="button" class="ui-btn"
-											onclick="remove(this.id)">OK</a> <a id="2btnPopup-cancel3"
-											data-role="button" class="ui-btn" data-rel="back"
-											data-inline="true">Cancel</a>
+										<a id="btnPopup-ok3" data-role="button"
+											class="ui-btn dismiss">OK</a> <a
+											id="btnPopup-cancel3" data-role="button" class="ui-btn"
+											data-rel="back" data-inline="true">Cancel</a>
+
 									</div>
 								</div>
 							</div>
@@ -151,8 +149,8 @@
 					</div>
 					<div>
 						<!-- a link to the Toast Popup which will show once the SOSbutton is clicked-->
-						<a href="#NotifyingPopup" data-rel="popup">
-							<button class="SOSbutton" id="SOS" >SOS</button>
+						<a href="#NotifyingPopup">
+							<button class="SOSbutton" id="SOS">SOS</button>
 						</a>
 					</div>
 					<!-- Toast Popup -->
@@ -164,20 +162,22 @@
 			</div>
 		</div>
 	</div>
-	
+
 	<!------------------------------------------Loading java script files---------------------------------------------------->
 	<script src="js/jquery.min.js"></script>
-	
+	<script src="js/mqtt.js"></script>
 	<script src="lib/tau/wearable/js/tau.min.js"></script>
-	<script src="js/lightSensor.js"></script>
+	<!-- <script src="js/lightSensor.js"></script> -->
 	<script src="js/app.js"></script>
 	<script src="js/watch.js"></script>
 	<script src="js/lowBatteryCheck.js"></script>
 	<script src="js/circle-helper.js"></script>
-	<script src="js/Sensors.js"></script>
-	<script src="js/location.js"></script>
+	<!-- <script src="js/Sensors.js"></script>
+	 <script src="js/location.js"></script>
+	<script src="js/bluetooth.js"></script>-->
+
 	<!--<script src="js/SleepMonitor.js"></script>-->
-	
+
 </body>
 
 </html>

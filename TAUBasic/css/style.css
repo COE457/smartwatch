@@ -7,6 +7,10 @@ or
 -ms-touch-action: none;
 touch-action: none;
 }
+.drag-drop-item
+{
+  touch-action: none;
+}
 
 /* Formatting the html and body elements to have a width and height of 100% with no margins*/
 html, body {
@@ -45,7 +49,7 @@ html, body {
 	height: 100%;
 	text-align: center;
 	overflow-y: auto; /*adds vertical scroll bar when needed*/
-	margin-bottom: 260px;
+	margin-bottom: 460px;
 }
 /*Formats the No Message String*/
 .noMsgs {

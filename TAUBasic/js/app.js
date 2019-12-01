@@ -1,13 +1,20 @@
 var NoMsg = false; /* Global variable set to true when there are no messages */
 var tau;/* Global Variable */
-var id = 0;/*
-			 * Global variable to set the messages id and increment it with
-			 * every message, acts as the id received from the webportal
-			 */
-var panicHistoryURL ="http://192.168.137.1:3001/API/panicHistory/create";
+var id = 5;/*
+ * Global variable to set the messages id and increment it with
+ * every message, acts as the id received from the webportal
+ */
+var panicHistoryURL = "http://192.168.137.1:3001/API/panicHistory/create";
+var client = new Paho.MQTT.Client('broker.hivemq.com', 8000, 'watch2/connect');
+client.connect({
+	onSuccess : onConnect
+});
 
+client.onMessageArrived = onMessageArrived;
 
 (function() {
+	
+
 	// Intializing the variables by getting elements from the dom by ID
 	var page = document.getElementById("hsectionchangerPage"), changer = document
 			.getElementById("hsectionchanger"), sectionLength = document
@@ -100,30 +107,7 @@ function initializeNoMsg() {
 
 }
 
-/**
- * @function remove
- * @desciption removes the message by id, checks if there are no msgs to call
- *             initializeNoMsg() and then calls sendPromise
- * @param id:
- * @fires initializeNoMsg()
- * @fires sendPromise
- * 
- */
-function remove(id) {
 
-	var lastChar = id[id.length - 1];// gets the id number from the last
-										// charecter of the id string
-	var temp = document.getElementById('message-view');
-	document.getElementById(lastChar).remove();// removes the element with the
-												// id found
-	// if all messages are removed
-	if (temp.childElementCount === 0) {
-		alert("No new messages");// preview and alert
-		NoMsg = true;
-		initializeNoMsg();// display on the screen that there are no messages
-	}
-	sendPromise(id);// send back to portal that the msg has been read
-}
 
 /**
  * @function receiveMsg
@@ -136,7 +120,7 @@ function receiveMsg() {
 	// messageBody var
 	var msgFrom, messageBody, id;
 	makeMsg(msgFrom, messageBody, id);// creates the msg HTML depending on the
-										// message body and messafe sender
+	// message body and messafe sender
 	id++;// increment id counter to have distinct messages
 
 }
@@ -150,26 +134,31 @@ function receiveMsg() {
  * @fires
  */
 function makeMsg(msgFrom, messageBody, id) {
+	console.log("making message");
+	console.log(messageBody);
+
 	var temp = document.getElementById('message-view');
+
 	// removes all child elements if NoMsg==true
 	if (NoMsg === true) {
-		while (temp.childElementCount !== 0) {
-			temp.removeChild();
-		}
+		var deleteNoMsg = document.getElementsByClassName("noMsgs")[0].parentNode;
+		temp.removeChild(deleteNoMsg);
 		NoMsg = false;
 	}
 	// creates variables to name the elements ids
 	var msgSenderid = "msgSender" + id;
 	var popupid = "Popup" + id;
 	var checkboxid = "checkbox" + id;
-	var cancelbtnid = "2btnPopup-cancel" + id;
-	var OKbtnid = "2btnPopup-OK" + id;
+	var cancelbtnid = "btnPopup-cancel" + id;
+	var OKbtnid = "btnPopup-OK" + id;
 	// creats the HTML string to be appended
 	var s = "<div class=\"msgFrom\" id=\""
 			+ msgSenderid
 			+ "\">"
 			+ msgFrom
-			+ "</div><div class=\"msgContainer\"><div><span class=\"msg\">Lunch is ready</span></div><div><a href=\"#"
+			+ "</div><div class=\"msgContainer\"><div><span class=\"msg\">"
+			+ messageBody
+			+ "</span></div><div><a href=\"#"
 			+ popupid
 			+ "\" data-rel=\"popup\"> <input type=\"checkbox\" id=\""
 			+ checkboxid
@@ -177,28 +166,59 @@ function makeMsg(msgFrom, messageBody, id) {
 			+ popupid
 			+ "\" class=\"ui-popup\"><div class=\"ui-popup-content\">Dismiss Message?</div><div class=\"ui-popup-footer ui-grid-col-2\"><a id=\""
 			+ OKbtnid
-			+ "\" data-role=\"button\" class=\"ui-btn\"onclick=\"remove(this.id)\">OK</a> <a id=\""
+			+ "\" data-role=\"button\" class=\"ui-btn dismiss\">OK</a> <a id=\""
 			+ cancelbtnid
-			+ "\"data-role=\"button\" class=\"ui-btn\" data-rel=\"back\"data-inline=\"true\">Cancel</a></div></div></div>";
+			+ "\"data-role=\"button\" class=\"ui-btn \" data-rel=\"back\">Cancel</a></div></div></div>";
 	// creats the msg div Element to add the HTML to
 	var msg = document.createElement("div");
 	msg.setAttribute("id", id);// sets the id of the div element
 	msg.innerHTML = s;// adds the HTMl inside the div element
 	temp.appendChild(msg);// appends the msg Node Element to the parent Node
-
+	id = id + 1;
 }
 
-/**
- * 
- * @function sendDissmissed
- * @desciption sends back to the web portal that the kid has accepted the
- *             message
- * @param id
- * 
- */
-function msgDissmissed(id) {
-	// Send back to web portal the id of the message resolved
+// called when the client connects
+function onConnect() {
+	// Once a connection has been made, make a subscription and send a message.
+	console.log("connected");
+	
+	client.subscribe("watch2/connect");
+	client.subscribe("watch2/message");
+
+	client.subscribe("watch2/msgDismissed");
+
+	var message = new Paho.MQTT.Message("Watch ready!");
+	message.destinationName = "watch2/connect";
+	client.send(message);// publish message
 }
+
+// called when the client connects
+//function onConnectDismiss() {
+//	// Once a connection has been made, make a subscription and send a message.
+//	console.log("connected dismiss");
+//	client.subscribe("watch2/msgDismissed");
+//	var message = new Paho.MQTT.Message("Dimissied connected");
+//	message.destinationName = "watch2/msgDismissed";
+//	clientDismiss.send(message);// publish message
+//}
+
+function onMessageArrived(message) {
+	console.log('Message Arrived');
+	// string in JSON format
+	
+	console.log(message.payloadString);
+	console.log(message.destinationName);
+	if (message.destinationName == 'watch2/message') {
+		var msg = JSON.parse(message.payloadString); //only if the message is a
+		console.log("message arrived");
+		makeMsg(msg.from, msg.msg, msg.id)
+		id++;
+	} else {
+		// tizen.application.getCurrentApplication().exit();
+	}
+}
+
+
 
 /**
  * 
@@ -210,33 +230,79 @@ function msgDissmissed(id) {
 $("#SOS").on("click", function sendSOSAlert() {
 	// Send to parents and alert
 	var timestamp = new Date().getTime();
-	var panicJson={"Smartwatch":"16e331e82ea91fee7b03f0be9017903a", "date":timestamp, "dismissed":"0"};  
+	var panicJson = {
+		"Smartwatch" : "16e331e82ea91fee7b03f0be9017903a",
+		"date" : timestamp,
+		"dismissed" : "0"
+	};
 	sendMsg(panicJson, panicHistoryURL);
+});
+
+
+$("#message-view").on("click", ".dismiss", function r() {
+	//var lastChar = this.id[this.id.length - 1];// gets the id number from the
+	var lastChar = this.id.match(/\d+/g);
+
+	// charecter of the id string
+	var temp = document.getElementById('message-view');
+	document.getElementById(lastChar.join()).remove();// removes the element with the
+	// id found
+	var message = new Paho.MQTT.Message("Dimissied " + id);
+	message.destinationName = "watch2/msgDismissed";
+	client.send(message);// publish message
+	// if all messages are removed
+	if (temp.childElementCount === 0) {
+		alert("No new messages");// preview and alert
+		NoMsg = true;
+		initializeNoMsg();// display on the screen that there are no messages
+	}
+
+});
+
+
+$(".dismiss").on("click", function remove() {
+
+	//var lastChar = this.id[this.id.length - 1];// gets the id number from the charecter of the id string
+	var lastChar = this.id.match(/\d+/g);
+	var temp = document.getElementById('message-view');
+	document.getElementById(lastChar.join()).remove();// removes the element with the
+	// id found
+
+	var message = new Paho.MQTT.Message("Dimissied "+ lastChar);
+	message.destinationName = "watch2/msgDismissed";
+	client.send(message);// publish message
+
+	// if all messages are removed
+	if (temp.childElementCount === 0) {
+		alert("No new messages");// preview and alert
+		NoMsg = true;
+		initializeNoMsg();// display on the screen that there are no messages
+	}
 });
 
 /**
  * @function sendMsg
  * @description sends the Msg to the server
- * @param body, url
+ * @param body,
+ *            url
  */
-function sendMsg(body, url)
-{
+function sendMsg(body, url) {
 	console.log(body);
 	$.ajax({
-		url: url,
-		dataType: "json",
-		type: "POST",
-		contentType: 'application/json',
-		data: JSON.stringify(body),
-		processData: false,
-		success: function( data, textStatus, jQxhr ){
+		url : url,
+		dataType : "json",
+		type : "POST",
+		contentType : 'application/json',
+		data : JSON.stringify(body),
+		processData : false,
+		success : function(data, textStatus, jQxhr) {
 			console.log('hi');
 		},
-		error: function( jqXhr, textStatus, errorThrown ){
+		error : function(jqXhr, textStatus, errorThrown) {
 			console.log(errorThrown);
 		}
 	});
-	
+
 }
 window.init = initializeNoMsg();// calls intializeNoMsg once window is
-								// initilized
+// initilized

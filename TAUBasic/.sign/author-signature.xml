@@ -116,15 +116,15 @@
 </Reference>
 <Reference URI="SectionChanger.html">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>XvXJ6PSyMbP0kh7dck5imUlbZlK7R+laHNTlgrVW2is=</DigestValue>
+<DigestValue>ntTmrvpun0mDy336s0c/glFe3k19FLbeMu09PLB8ZT8=</DigestValue>
 </Reference>
 <Reference URI="config.xml">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>pbaunE5zsxJdrUMS/V8b7QNGl6pCAns161Ov0Tpxkjw=</DigestValue>
+<DigestValue>zgDbnySYrDQAxRYB5kAwK6J3AC9NKw0NtJdX+GuWA/Q=</DigestValue>
 </Reference>
 <Reference URI="css%2Fstyle.css">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>rmIxZ39zKBv9nU8HZwBYbYzfkBRGn89VtRASpZz6pAU=</DigestValue>
+<DigestValue>65TpKqnRRBZ7O8v2Vt781abGur3xMpNzXoMtv/4Ouq4=</DigestValue>
 </Reference>
 <Reference URI="images%2FDuck.jpg">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -176,11 +176,19 @@
 </Reference>
 <Reference URI="js%2Fapp.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>sWKL20CywzwKfcMx4giAVIMJgVZXB+qF4acIFSyfGuM=</DigestValue>
+<DigestValue>j50+B1UXDTxb7IgCawH1KwfNINEq+HwxCj1+w2oH00Q=</DigestValue>
+</Reference>
+<Reference URI="js%2Fbluetooth.js">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
+<DigestValue>KOK9Enhn+rG9DSPXix1zPoMBGGWYGn2LIvKRpsv9FsY=</DigestValue>
 </Reference>
 <Reference URI="js%2Fcircle-helper.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
 <DigestValue>0+TbSqg2TfiaBBu+OpgUziLxj8xqrvGgo5rR4vZRB9U=</DigestValue>
+</Reference>
+<Reference URI="js%2Fcommunication.js">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
+<DigestValue>47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=</DigestValue>
 </Reference>
 <Reference URI="js%2Fjquery.min.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -188,7 +196,7 @@
 </Reference>
 <Reference URI="js%2FlightSensor.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>DFTFTWYH0stE1hDsp7B2ngVA0D7hcWPn46voiw8WAxo=</DigestValue>
+<DigestValue>dVp7u4QTNFqf1Uurj19gdRQkqrG9eLgqP6LxTaVQjTs=</DigestValue>
 </Reference>
 <Reference URI="js%2Flocation.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -197,6 +205,10 @@
 <Reference URI="js%2FlowBatteryCheck.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
 <DigestValue>+i5daekAbnIThj3rFOl0UxpMhcCvNBzIUCR5tkh0Flg=</DigestValue>
+</Reference>
+<Reference URI="js%2Fmqtt.js">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
+<DigestValue>0WXiZQD3LtOF8cS2l9vtTyv5ySjAw1QaTsWpUcbsWaw=</DigestValue>
 </Reference>
 <Reference URI="js%2Fwatch.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -1547,11 +1559,11 @@
 </Reference>
 </SignedInfo>
 <SignatureValue>
-UzsBrnDpYS6zX6wKVqfo2KwXiC1vWunk2S9PXmNOTA3v3vIK422bC2jLCF55Q35w5zq7hn6SL8po
-8aGW16FaZYX45VWeDVk/3KrRXPHTb+Wb7/LszMfRllmiSQ04hvD5Qk2fltSO6OUt0x91lqpUJCmX
-GSl0UwZPs9r1o6fUjcQeU6Qcj4yZzdBxMJE+HMgk4I0vaYRoCZZ6gYHVcxFa7tZ4X871DiKluEz8
-xrIzmMucishjxCb34vHuOiSmlOwvdQ2zxUaB47F94hE0j0KtWp882AiH+s6UF45FqTYy6+d/hUKR
-Orrmvcm1HCXR+3Z1PRdQ07jds45QkCXskbFrgg==
+YP2KaK6/Bmp8n21BEnaivjfUBJZpiH9N2PXFMTyxRLZ6mEWXz3gx0L2nRIKL5tQmH/bR5R5Kv276
+FCC5fjCwGWsTm5dI4PUkixXgH8Mzih+QIFsy6IQrrg3sKgstDalXlTSG5480gCOrJsQ1IKvFwKSm
+QDBY8YNPZb8+rC8WnSBkamDj8gMHPJXfKC3k6n7wa6bYJxrrIw2ttm9EGGrr6PZr2lU7NGDFTukd
+KhYbto4tzqKwWcxnU0h8aRcZdsgq1yhytpKA0Nt5NTiRJklqxdk9HklsANeH4nba46O58gtaXSmJ
+dWfD6OoeEU+RXF+ccLDx9vDIRpgFkmD5DTPFOw==
 </SignatureValue>
 <KeyInfo>
 <X509Data>

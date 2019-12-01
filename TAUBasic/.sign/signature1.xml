@@ -116,19 +116,19 @@
 </Reference>
 <Reference URI="SectionChanger.html">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>XvXJ6PSyMbP0kh7dck5imUlbZlK7R+laHNTlgrVW2is=</DigestValue>
+<DigestValue>ntTmrvpun0mDy336s0c/glFe3k19FLbeMu09PLB8ZT8=</DigestValue>
 </Reference>
 <Reference URI="author-signature.xml">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>9TTFGHtffXiBVvruPod6ujBrjnqg8b2SzgL2IqHPPfk=</DigestValue>
+<DigestValue>Eh7JRJjTwLGg2xCQWq87AFywHxAbXtF7JyF9ewxUJ58=</DigestValue>
 </Reference>
 <Reference URI="config.xml">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>pbaunE5zsxJdrUMS/V8b7QNGl6pCAns161Ov0Tpxkjw=</DigestValue>
+<DigestValue>zgDbnySYrDQAxRYB5kAwK6J3AC9NKw0NtJdX+GuWA/Q=</DigestValue>
 </Reference>
 <Reference URI="css%2Fstyle.css">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>rmIxZ39zKBv9nU8HZwBYbYzfkBRGn89VtRASpZz6pAU=</DigestValue>
+<DigestValue>65TpKqnRRBZ7O8v2Vt781abGur3xMpNzXoMtv/4Ouq4=</DigestValue>
 </Reference>
 <Reference URI="images%2FDuck.jpg">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -180,11 +180,19 @@
 </Reference>
 <Reference URI="js%2Fapp.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>sWKL20CywzwKfcMx4giAVIMJgVZXB+qF4acIFSyfGuM=</DigestValue>
+<DigestValue>j50+B1UXDTxb7IgCawH1KwfNINEq+HwxCj1+w2oH00Q=</DigestValue>
+</Reference>
+<Reference URI="js%2Fbluetooth.js">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
+<DigestValue>KOK9Enhn+rG9DSPXix1zPoMBGGWYGn2LIvKRpsv9FsY=</DigestValue>
 </Reference>
 <Reference URI="js%2Fcircle-helper.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
 <DigestValue>0+TbSqg2TfiaBBu+OpgUziLxj8xqrvGgo5rR4vZRB9U=</DigestValue>
+</Reference>
+<Reference URI="js%2Fcommunication.js">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
+<DigestValue>47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=</DigestValue>
 </Reference>
 <Reference URI="js%2Fjquery.min.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -192,7 +200,7 @@
 </Reference>
 <Reference URI="js%2FlightSensor.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>DFTFTWYH0stE1hDsp7B2ngVA0D7hcWPn46voiw8WAxo=</DigestValue>
+<DigestValue>dVp7u4QTNFqf1Uurj19gdRQkqrG9eLgqP6LxTaVQjTs=</DigestValue>
 </Reference>
 <Reference URI="js%2Flocation.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -201,6 +209,10 @@
 <Reference URI="js%2FlowBatteryCheck.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
 <DigestValue>+i5daekAbnIThj3rFOl0UxpMhcCvNBzIUCR5tkh0Flg=</DigestValue>
+</Reference>
+<Reference URI="js%2Fmqtt.js">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
+<DigestValue>0WXiZQD3LtOF8cS2l9vtTyv5ySjAw1QaTsWpUcbsWaw=</DigestValue>
 </Reference>
 <Reference URI="js%2Fwatch.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -1551,11 +1563,11 @@
 </Reference>
 </SignedInfo>
 <SignatureValue>
-d7NsjVOfsz72gDcTU11SGH4mCisk/Xhgmg9GbUxYnEXG+456yqErsyotiIwHGylstHKKOlczR93v
-BmgXWsXWrL7dGlZ49YHW9EveDj1MFHWxtcVY1yjetTSfuuyoMzFMB/RbvBQePAfmKe9ua+EcZtwJ
-g3tlsa8/nWFyqftrCE5UDz62hmim3Y/AkB5bI3D9wwa1cPJTTIYkcwoqYTRcEYU4eVJIBEZ7iwYh
-7fqOgSrZicmVYq33Ic/+irWUEqyVEl3PwR2NWtGWLG8oNxVudTPkZ5YilqhhWJSs/HuvcqirC7mo
-J70LwJwnSIGfv03Z5++bOzC0Yg+vRYV4WYlJHw==
+Rf7Tsqz1RK+1BTkm2aqWJLmBoLXWedSWIeErurHQTileO35xSkFC8I0b57Vm9FR7fF6JUDlZ89Wx
+OXWAL9E42ysZL5Uw7aqRoWphaClzIoaeEraOLzHr+7hR8QKQw8xnjGjRAGXMY0w4cJqDrAf9qNPY
+isq3mjJ+rltaCRSr/4tquJu9iBNu4pz2agolakx8NLehxwzmswOTwOZgKP8D5sNs62NYoW5dGXiI
+tXBkOt3S5Une9EVPVcqZm72V+3VcygZc90uFoc2Oa6tc3HIylOzEX4JQHcaSnuCghYuaCEEBzwL4
+QGn4JLtMiBm5KwqBnCkq+JdseK6KabasHuLr7g==
 </SignatureValue>
 <KeyInfo>
 <X509Data>
