@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <title>UI Components</title>
+    <link rel="stylesheet" href="lib/tau/wearable/theme/default/tau.min.css">
+    <link rel="stylesheet" media="all and (-tizen-geometric-shape: circle)" href="lib/tau/wearable/theme/default/tau.circle.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!-- Main Page -->
+    <div class="ui-page" id="main" data-enable-page-scroll="false">
+        <!-- Main Page : Popup : More Options -->
+        <div id="moreoptionsPopupCircle" class="ui-popup">
+            <div id="selector" class="ui-selector">
+                <div id="to-list" class="ui-item list-icon" data-title="List"></div>
+            </div>
+        </div>
+        <!-- Main Page : Popup : Cancel Confirmation -->
+        <div id="recording-cancel" class="ui-popup">
+            <div class="ui-popup-content">
+                Recording is cancelled.
+            </div>
+            <div class="ui-popup-footer ui-side-button ui-grid-col-2">
+                <a id="recording-cancel-cancel" href="#" class="ui-btn btn-icon-cancel" data-rel="back">Cancel</a>
+                <a id="recording-cancel-ok" href="#" class="ui-btn btn-icon-check" data-rel="back">OK</a>
+            </div>
+        </div>
+        <!-- Main Page : Header -->
+        <header class="ui-header ui-has-more">
+            <h2 id="recording-title" class="ui-title">Voice Memo</h2>
+            <button id="main-moreoptions" type="button" class="ui-more ui-icon-overflow">More Options</button>
+        </header>
+        <!-- Main Page : Content -->
+        <div class="ui-content content-padding">
+            <!-- Main Page : Content: Stand-by -->
+            <div id="voice-recorder-start" class="stand-by">
+                <div id="voice-recorder-stop-bg"></div>
+                <div id="voice-recorder-stop-icon"></div>
+            </div>
+            <!-- Main Page : Content: Recording -->
+            <div id="voice-recorder-effect-bg" class="recording"></div>
+            <div id="voice-recorder-recording" class="recording">
+                <div id="voice-recorder-stop">
+                    <div id="voice-recorder-btn-bg"></div>
+                    <div id="voice-recorder-btn-stop"></div>
+                </div>
+                <div id="voice-recorder-cancel">
+                    <div id="voice-recorder-conroller-bg-cancel"></div>
+                    <div id="voice-recorder-icon-cancel"></div>
+                </div>
+                <div id="voice-recorder-pause" class="recording-pause">
+                    <div id="voice-recorder-conroller-bg-pause"></div>
+                    <div id="voice-recorder-icon-pause"></div>
+                </div>
+                <div id="voice-recorder-resume" class="recording-resume">
+                    <div id="voice-recorder-conroller-bg-resume"></div>
+                    <div id="voice-recorder-icon-resume"></div>
+                </div>
+            </div>
+            <!-- Main Page : Content: Duration Text -->
+            <div class="recording-text"><span id="durMinute">00</span>:<span id="durSecond">00</span>
+            </div>
+            <!-- Main Page : Content: Circle Progress Bar -->
+            <progress class="ui-circle-progress" id="circleprogress" max="100" value="0"></progress>
+        </div>
+    </div>
+
+    <!-- List Page -->
+    <div class="ui-page" id="list" data-enable-page-scroll="true">
+        <header class="ui-header">
+            <h2 class="ui-title">Recordings</h2>
+        </header>
+        <div class="ui-content">
+            <div id="list-none" class="ui-listview-none">
+                <div id="list-none-img"></div>
+                <div id="list-none-text">No Recordings</div>
+            </div>
+            <ul id="list-recordings" class="ui-listview">
+            </ul>
+        </div>
+    </div>
+
+    <!-- Play Page -->
+    <div class="ui-page" id="play" data-enable-page-scroll="false">
+        <!-- Play Page : Popup : BT Connection -->
+        <div id="bt-connection" class="ui-popup">
+            <div class="ui-popup-content">
+                <div id="voice-recorder-bt-headset"></div>
+                Connect?
+                <br>Need to connect with BT headset.
+            </div>
+            <div class="ui-popup-footer ui-side-button ui-grid-col-2">
+                <a id="bt-connection-cancel" href="#" class="ui-btn btn-icon-cancel" data-rel="back">Cancel</a>
+                <a id="bt-connection-ok" href="#" class="ui-btn btn-icon-check" data-rel="back">OK</a>
+            </div>
+        </div>
+        <!-- Play Page : Popup : More Options -->
+        <div id="moreoptionsPopupCircle" class="ui-popup">
+            <div id="selector" class="ui-selector">
+                <div id="to-delete" class="ui-item delete-icon" data-title="Delete"></div>
+            </div>
+        </div>
+        <!-- Play Page : Header -->
+        <header class="ui-header ui-has-more">
+            <h2 id="play-title" class="ui-title"></h2>
+            <button id="play-moreoptions" type="button" class="ui-more ui-icon-overflow">More Options</button>
+        </header>
+        <!-- Play Page : Content -->
+        <div class="ui-content content-padding">
+            <span id="play-time" class="play-info"></span> <br/>
+            <span id="play-duration" class="play-info"></span>
+        </div>
+        <!-- Play Page : Footer Button -->
+        <footer class="ui-footer ui-bottom-button ui-fixed">
+            <button id="btn-play" class="ui-btn ui-btn-icon-only"></button>
+        </footer>
+    </div>
+
+    <script type="text/javascript" src="lib/tau/wearable/js/tau.js"></script>
+    <script type="text/javascript" src="js/progress.js"></script>
+    <script type="text/javascript" src="js/moreoptions.js"></script>
+    <script type="text/javascript" src="js/list.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>

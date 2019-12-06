@@ -12,11 +12,11 @@
 </Reference>
 <Reference URI="author-signature.xml">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>QnBGxqwQlB5Ar4ayLpoVqu3Ukhe0UbXKnEPyeVrChGY=</DigestValue>
+<DigestValue>/0tVQV7ooua4YHverB8pT953MlgLptfP2TNwfVm53kY=</DigestValue>
 </Reference>
 <Reference URI="config.xml">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>3fa+jtIcmIb1IEugc4gmJX33P5J1m/DWXZ2JHl/1GV4=</DigestValue>
+<DigestValue>TJtnV2XfLCJi4J4ezHvoejX8Vy+XlMjM+L5eMaXW39E=</DigestValue>
 </Reference>
 <Reference URI="css%2Fstyle.css">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -40,11 +40,11 @@
 </Reference>
 <Reference URI="js%2Fapp.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>+95aQS45Sz/LyOifHHy/+MyLz7eTy2/NsLQFsjqDXOA=</DigestValue>
+<DigestValue>olezelBh3RQG1GuR5fmD46A8lgjcQZFx/PPGUYi3x+s=</DigestValue>
 </Reference>
 <Reference URI="js%2Fapp.model.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>v2j8kY0JZElK9IFACpNUYDUePm5Xc5iIJKl7JgKom+g=</DigestValue>
+<DigestValue>/A7Kc/ns4ApGRXQXWaVJRUqqBMEQqGEkB2viVZJo8NE=</DigestValue>
 </Reference>
 <Reference URI="js%2Fapp.ui.circleHelper.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -1067,11 +1067,11 @@
 </Reference>
 </SignedInfo>
 <SignatureValue>
-MmBsMkDUc7IFQOXvvEmdfFoKYdi5OvVZH5B2CtmJILJ4tAfIJ1yef3L6OlBfewyjaxvhIQ+Th41M
-MJ3hQJKhh7C9YOmmoW6e0f6D/TxXcurzC8MqUfenBJRYqvovatyOP1akUSv/I0OunZMMr/qgvww+
-47KBMnr+eePvS+fDy2fH9JY+72W4NfPnLcNCEroZmTTrZ2yiavWhISv155aBAFsFO8abW5kBxwtX
-1c8JQZQ7wft8JvB6GFsLKzrty8jCngjqXJI8edVoXSEXwWPnmGge0HnieCw7NA9hfxnIrRhl0Sfg
-dLzUiZn+5sD+m+58P1VjSxc0Jpn48fVkocJtRA==
+B8oezzH75XP1ezI5+jXdK9fFEC+Of7lQTnnqdtkyJPLBDz5DTgtKdgf/GIojjvm4A1qcvsq16/b3
+ZgK42tU16DxiLI/Bc/MSVR11BQXbJoTCRhDi3ZWqXF7CwVbarB7vEWukpASEt68M8qTOEmqMQqNi
+dQnm/eBDTLybyffhPA0SdCJkKt4mkQQxUEDjeeRAkBC2b2ej9XwHzfQt271SXraeniZIUc5NrG15
+E/kYo0gFpPGjZyrQFoqNDZHCUtDduIKj46f4KdmDmB/7WNUTu4LS6odF8cOu9qt5P6YA61QRI44M
+Bj0KiyKFICt5HXO4EPAlGhJ9V6+OoWR3SwRJ2g==
 </SignatureValue>
 <KeyInfo>
 <X509Data>

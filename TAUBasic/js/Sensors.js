@@ -4,7 +4,50 @@ var heartrate;
 //URL paths to send the heartrate, equipment and awake status 
 var hearRateHistoryURL = 'http://192.168.137.1:3001/API/heartRateHistory/create';
 var equipmentHistoryURL = 'http://192.168.137.1:3001/API/equipmentHistory/create';
+var client = new Paho.MQTT.Client('broker.hivemq.com', 8000, 'sensors');
 
+var getID = tizen.systeminfo.getCapabilities();
+var devID = getID.duid.substring(0,8);
+
+var TimeInterval= 1000*10;
+
+
+var heartrateJson= {
+		"Smartwatch" : devID,
+		"date" : "n/a",
+		"reading" :  ["n/a", "n/a"]
+	};
+var equippedJson={
+	"Smartwatch" : devID,
+	"date" : "n/a",
+	"equipped" : "n/a"
+};
+
+client.connect({
+	onSuccess : onConnect
+});
+
+function onConnect() {
+	// Once a connection has been made, make a subscription and send a message.
+	console.log("connected");
+	
+	client.subscribe("watch2/heartRateHistory");
+	client.subscribe("watch2/equipmentHistory");
+	
+	
+	setInterval(function sendJson(){
+	var heartRate = new Paho.MQTT.Message(JSON.stringify(heartrateJson));
+	heartRate.destinationName = "watch2/heartRateHistory";
+	client.send(heartRate);// publish message
+	console.log("HR sent");
+	
+	
+	var equipment = new Paho.MQTT.Message(JSON.stringify(equippedJson));
+	equipment.destinationName = "watch2/equipmentHistory";
+	client.send(equipment);// publish message 
+	console.log("equip sent");
+	},  TimeInterval);
+}
 //function that sends the message using ajax through HTTP request
 function sendMsg(body, url) {
 	$.ajax({
@@ -26,8 +69,6 @@ function sendMsg(body, url) {
 //This function gets the sesnsor API 
 function sensorFunc() {
 	//calls the success callback if the sesnor is there otherwise calls error callback
-	
-	
 	tizen.humanactivitymonitor.getHumanActivityData("HRM",
 			successCallbackHeart, errorCallback); //HeartRate API
 	//tizen.humanactivitymonitor.getHumanActivityData("PEDOMETER",
@@ -39,8 +80,6 @@ function successCallbackHeart(hrminfo) {
 
 	heartrate = hrminfo.heartRate;
 	var timestamp = new Date().getTime();//timestamp of when the data was acquired
-	var equippedJson;
-	
 	//get the Sleep Monitor Api and the sleep status  
 	tizen.humanactivitymonitor.getHumanActivityData("SLEEP_MONITOR",
 			function successCallbackSleep(slinfo){
@@ -48,13 +87,16 @@ function successCallbackHeart(hrminfo) {
 		var timestamp = new Date().getTime();
 	
 		//create the JSON to send 
-		var heartrateJson = {
-				"Smartwatch" : "16e331e82ea91fee7b03f0be9016d3ef",
+		 heartrateJson = {
+				"Smartwatch" : devID,
 				"date" : timestamp,
 				"reading" :  [heartrate.toString(), sleepStatus.toString()]
 			};
 		
-		sendMsg(heartrateJson, hearRateHistoryURL); //send the heartrate and awake status as a JSON
+	//	sendMsg(heartrateJson, hearRateHistoryURL); //send the heartrate and awake status as a JSON
+		
+			
+
 	}, errorCallback);
 			
 
@@ -64,22 +106,22 @@ function successCallbackHeart(hrminfo) {
 		
 		//send equipped JSON
 		equippedJson = {
-			"Smartwatch" : "16e331e82ea91fee7b03f0be9017903a",
+			"Smartwatch" : devID,
 			"date" : timestamp,
 			"equipped" : "1"
 		};
-		 sendMsg(equippedJson, equipmentHistoryURL);
+		// sendMsg(equippedJson, equipmentHistoryURL);
 
 	} else {
 		//Watch is not equipped
 		//send equipped JSON
 		equippedJson = {
-			"Smartwatch" : "16e331e82ea91fee7b03f0be9016d3ef",
+			"Smartwatch" : devID,
 			"date" : timestamp,
 			"equipped" : "0"
 		};
 		//send equippedJson 
-		 sendMsg(equippedJson, equipmentHistoryURL);
+		//sendMsg(equippedJson, equipmentHistoryURL);
 	}
 }
 
@@ -109,7 +151,7 @@ function successCallbackPer() {
 	tizen.humanactivitymonitor.start('SLEEP_MONITOR'); // starte the sleep monitor 
 //	tizen.humanactivitymonitor.start('PEDOMETER');
 	console.log('succes Permision');
-	setInterval(sensorFunc, 1000 * 6); //call sensorFunction with a time interval 
+	setInterval(sensorFunc, TimeInterval); //call sensorFunction with a time interval 
 }
 
 //function to request sensor permission

@@ -1,0 +1,381 @@
+* {
+    font-family: Verdana, Lucida Sans, Arial, Helvetica, sans-serif;
+}
+
+/*-------INITIAL SETTING-------*/
+
+.stand-by {
+    display: block;
+}
+
+.recording,
+.recording-resume,
+#list-none {
+    display: none;
+}
+
+/*-------MAIN PAGE : STAND-BY-------*/
+
+#voice-recorder-start {
+    position: relative;
+    margin-top: 24px;
+    margin-left: 117px;
+    width: 126px;
+    height: 126px;
+}
+
+#voice-recorder-stop-bg {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(255, 255, 255);
+    -webkit-mask-image: url("../image/voicerecorder_stop_bg.png");
+    -webkit-mask-size: 126px 126px;
+    -webkit-mask-repeat: no-repeat;
+    z-index: 1;
+}
+
+#voice-recorder-stop-icon {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(224, 4, 4);
+    -webkit-mask-image: url("../image/voicerecorder_stop_icon.png");
+    -webkit-mask-size: 126px 126px;
+    -webkit-mask-repeat: no-repeat;
+    z-index: 2;
+}
+
+.recording-text {
+    position: relative;
+    height: 86px;
+    color: rgb(255, 255, 255);
+    font-size: 60px;
+    line-height: 86px;
+    vertical-align: middle;
+    z-index: 2;
+}
+
+#apps-visual-cue {
+    width: 100%;
+    height: 18px;
+    background-color: rgb(255, 255, 255);
+    -webkit-mask-image: url("../image/apps_visual_cue.png");
+    -webkit-mask-size: 32px 18px;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: 164px 0px;
+    z-index: 1;
+}
+
+/*-------MAIN PAGE : RECORDING-------*/
+
+#voice-recorder-recording {
+    position: relative;
+    margin-top: 24px;
+    width: 100%;
+    height: 126px;
+}
+
+#voice-recorder-stop {
+    position: absolute;
+    top: 0;
+    margin-left: 117px;
+    width: 126px;
+    height: 126px;
+}
+
+#voice-recorder-btn-bg {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(18, 180, 255);
+    -webkit-mask-image: url("../image/voicerecorder_btn_bg.png");
+    -webkit-mask-size: 126px 126px;
+    -webkit-mask-repeat: no-repeat;
+    z-index: 1;
+}
+
+#voice-recorder-btn-stop {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(255, 255, 255);
+    -webkit-mask-image: url("../image/voicerecorder_btn_stop.png");
+    -webkit-mask-size: 126px 126px;
+    -webkit-mask-repeat: no-repeat;
+    z-index: 2;
+}
+
+#voice-recorder-cancel {
+    position: absolute;
+    top: 22px;
+    margin-left: 30px;
+    width: 82px;
+    height: 82px;
+}
+
+#voice-recorder-conroller-bg-cancel {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(255, 255, 255);
+    -webkit-mask-image: url("../image/record_controller_bg.png");
+    -webkit-mask-size: 82px 82px;
+    -webkit-mask-repeat: no-repeat;
+    z-index: 1;
+}
+
+#voice-recorder-icon-cancel {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(79, 79, 79);
+    -webkit-mask-image: url("../image/recording_icon_cancel.png");
+    -webkit-mask-size: 82px 82px;
+    -webkit-mask-repeat: no-repeat;
+    z-index: 2;
+}
+
+#voice-recorder-pause,
+#voice-recorder-resume {
+    position: absolute;
+    top: 22px;
+    margin-left: 248px;
+    width: 82px;
+    height: 82px;
+}
+
+#voice-recorder-conroller-bg-pause,
+#voice-recorder-conroller-bg-resume {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(255, 255, 255);
+    -webkit-mask-image: url("../image/record_controller_bg.png");
+    -webkit-mask-size: 82px 82px;
+    -webkit-mask-repeat: no-repeat;
+    z-index: 1;
+}
+
+#voice-recorder-icon-pause {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(79, 79, 79);
+    -webkit-mask-image: url("../image/recording_icon_pause.png");
+    -webkit-mask-size: 82px 82px;
+    -webkit-mask-repeat: no-repeat;
+    z-index: 2;
+}
+
+#voice-recorder-icon-resume {
+    position: absolute;
+    width: 100%;
+    height: 82px;
+    background-color: rgb(224, 4, 4);
+    -webkit-mask-image: url("../image/record_stop_icon.png");
+    -webkit-mask-size: 82px 82px;
+    -webkit-mask-repeat: no-repeat;
+    z-index: 2;
+}
+
+#voice-recorder-effect-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(18, 180, 255);
+    opacity: 0.5;
+    -webkit-mask-image: url("../image/voicerecorder_effect_bg.png");
+    -webkit-mask-size: 360px 360px;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: 0px 0px;
+    z-index: 0;
+}
+
+/*-------LIST PAGE-------*/
+
+#list-none {
+    margin-top: 10px;
+}
+
+#list-none-img {
+    width: 100%;
+    height: 98px;
+    opacity: 0.7;
+    background-image: url("../image/b_icon_voicememo.png");
+    background-repeat: no-repeat;
+    background-position: 131px 0;
+}
+
+#list-none-text {
+    margin-top: 30px;
+    bottom: 54px;
+    height: 35px;
+    color: rgb(255, 255, 255);
+    font-size: 30px;
+    z-index: 2;
+}
+
+/*-------PLAY PAGE-------*/
+
+.play-info {
+    font-size: 24px;
+    color: rgb(184, 184, 184);
+}
+
+#voice-recorder-bt-headset {
+    width: 224px;
+    height: 100px;
+    background-image: url("../image/voicerecorder_bt_headset_image.png");
+    background-repeat: no-repeat;
+    background-position: 0 0;
+}
+
+#bt-connection .ui-popup-content {
+	margin-top: 76px;
+    font-size: 30px;
+}
+
+/*-------TAU PROGRESS BAR-------*/
+
+.ui-content .ui-progressbar .ui-progressbar-value .ui-progressbar-value-left {
+    border: 0.5rem solid rgba(18, 180, 255, 1);
+}
+
+.ui-content .ui-progressbar .ui-progressbar-value .ui-progressbar-value-right {
+    border: 0.5rem solid rgba(18, 180, 255, 1);
+}
+
+.ui-content .ui-progressbar .ui-progressbar-bg {
+    border: 0.5rem solid rgba(8, 81, 115, 1);
+}
+
+.ui-item.ui-item-active::before {
+    background-color: #3261ba;
+}
+
+/*-------TAU LIST-------*/
+
+.list-icon::before {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    -webkit-mask-image: url(../image/more_option_icon_stt_list.png);
+    -webkit-mask-size: 100% 100%;
+    background-color: rgb(89, 88, 91);
+    -webkit-mask-repeat: no-repeat;
+}
+
+.delete-icon::before {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    -webkit-mask-image: url(../image/more_option_icon_delete.png);
+    -webkit-mask-size: 100% 100%;
+    background-color: rgb(89, 88, 91);
+    -webkit-mask-repeat: no-repeat;
+}
+
+.btn-icon-check::before {
+    background-color: rgba(0, 149, 255, 1);
+    -webkit-mask-image: url(../image/tw_ic_popup_btn_check.png);
+}
+
+.btn-icon-cancel::before {
+    background-color: rgba(0, 149, 255, 1);
+    -webkit-mask-image: url(../image/tw_ic_popup_btn_delete.png);
+}
+
+.ui-popup-content .btn-additional {
+    width: 160px;
+    height: 160px;
+    border-radius: 50% 50%;
+    background-color: rgba(10, 64, 94, 1);
+    margin: 19px auto auto;
+    padding: 59px 5px;
+}
+
+.ui-listview li.li-has-multiline {
+    padding-top: 6px;
+    padding-bottom: 5px;
+    min-height: 100px;
+}
+
+.ui-listview.ui-snap-listview li.li-has-multiline {
+    padding-top: 9px;
+    padding-bottom: 8px;
+    min-height: 130px;
+    line-height: 32px;
+}
+
+.ui-listview li.li-has-multiline > a {
+    margin-top: -6px;
+    margin-bottom: -6px;
+    padding-top: 11px;
+    padding-bottom: 12px;
+}
+
+.ui-listview li.li-has-multiline-sup {
+    padding-top: 6px;
+    padding-bottom: 5px;
+    min-height: 100px;
+}
+
+.ui-listview li.li-has-multiline-sup > a {
+    margin-top: -36px;
+    margin-bottom: -5px;
+    padding-top: 36px;
+    padding-bottom: 5px;
+}
+
+.ui-listview li {
+    position: relative;
+}
+
+.ui-listview.ui-snap-listview li.li-has-multiline.li-has-2line-sub > a {
+    padding-top: 10px;
+    padding-bottom: 9px;
+}
+
+.ui-listview.expand-list li.li-has-2line .ui-li-sub-text {
+    -webkit-transform: translate(0, -20px);
+    opacity: 0;
+}
+
+.ui-listview.expand-list li.li-has-2line.ui-snap-listview-selected .ui-li-sub-text {
+    -webkit-transform: translate3d(0, 0, 0);
+    opacity: 1;
+    -webkit-transition: all ease 1s;
+}
+
+.ui-listview li .li-text-sub {
+    display: block;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    line-height: 32px;
+}
+
+.ui-page .ui-footer.ui-bottom-button {
+    position: relative !important;
+}
+
+.ui-page .ui-footer.ui-bottom-button .ui-btn {
+    padding-top: 13%;
+}
+
+.ui-bottom-button .ui-btn::before {
+    background-color: rgb(255, 255, 255);
+    -webkit-mask-image: url("../image/details_playback_icon.png");
+}

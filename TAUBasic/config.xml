@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<widget xmlns="http://www.w3.org/ns/widgets" xmlns:tizen="http://tizen.org/ns/widgets" id="http://yourdomain/TAUBasic" version="1.0.0" viewmodes="maximized">
+<widget xmlns:tizen="http://tizen.org/ns/widgets" xmlns="http://www.w3.org/ns/widgets" id="http://yourdomain/TAUBasic" version="1.0.0" viewmodes="maximized">
     <access origin="*" subdomains="true"></access>
     <tizen:allow-navigation>https://api.opencagedata.com/geocode/</tizen:allow-navigation>
     <tizen:application id="7dIiCygWmj.TAUBasic" package="7dIiCygWmj" required_version="4.0"/>
@@ -12,6 +12,8 @@
     <feature name="http://tizen.org/feature/network.bluetooth.le"/>
     <icon src="trans_icon (1) (1).png"/>
     <name>KidsMonitor</name>
+    <tizen:privilege name="http://tizen.org/privilege/application.launch"/>
+    <tizen:privilege name="http://tizen.org/privilege/notification"/>
     <tizen:privilege name="http://tizen.org/privilege/bluetooth"/>
     <tizen:privilege name="http://tizen.org/privilege/power"/>
     <tizen:privilege name="http://tizen.org/privilege/system"/>

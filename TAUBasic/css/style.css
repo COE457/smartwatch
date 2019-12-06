@@ -1,15 +1,16 @@
 .owl-carousel {
--ms-touch-action: pan-y;
-touch-action: pan-y;
+	-ms-touch-action: pan-y;
+	touch-action: pan-y;
 }
+
 or
 .owl-carousel {
--ms-touch-action: none;
-touch-action: none;
+	-ms-touch-action: none;
+	touch-action: none;
 }
-.drag-drop-item
-{
-  touch-action: none;
+
+.drag-drop-item {
+	touch-action: none;
 }
 
 /* Formatting the html and body elements to have a width and height of 100% with no margins*/
@@ -22,7 +23,7 @@ html, body {
 /*Overwritting the ui-content class for the section tag*/
 .ui-content section {
 	overflow: hidden; /*clips the overflow and hides the rest of content*/
-	overflow-y: auto; /*adds a veritcal scrollbar when necessary*/
+	/*overflow-y: auto; /*adds a veritcal scrollbar when necessary*/
 }
 
 /*
@@ -50,6 +51,7 @@ html, body {
 	text-align: center;
 	overflow-y: auto; /*adds vertical scroll bar when needed*/
 	margin-bottom: 460px;
+	padding-bottom: 60px;
 }
 /*Formats the No Message String*/
 .noMsgs {
@@ -104,7 +106,6 @@ input[type="checkbox"] {
 	background-color: rgba(112, 186, 15, 1);
 }
 
-
 /*Formats the img tag*/
 img {
 	opacity: 0.95; /*Adds opacity*/
@@ -121,15 +122,34 @@ img {
 	filter: blur(2px);
 	-webkit-filter: blur(2px);
 	background-attachment: fixed;
-	background-repeat: repeat-y;/*Repeats the image vertically when needed*/
-	
+	background-repeat: repeat-y;
+	/*Repeats the image vertically when needed*/
+
 	/* background-size: cover; /* Resize the background image to cover the entire container */
 	/* 	background-position: center; /* Center the image */
 	/*	background-repeat: no-repeat; /* Do not repeat the image */
 }
 
 .bg {
-	background-color: #fff !important;/*makes the background color as white*/
+	background-color: #fff !important;
+	/*makes the background color as white*/
+}
+
+#ShowId {
+	position: absolute;
+	left: 10%;
+	top: 40%;
+	text-align: center;
+	outline: none;
+	font-family: 'helvetica neue' sans-serif;
+	font-size: 1em;
+	text-shadow: 0.075em 0.08em 0.1em rgba(0, 0, 0, 1);
+	background-color: #96DE52; /*Sets the background color to green*/
+	border: 2px solid green;
+	/*Set the borders color to grean with a width of 2px*/
+	border-radius: 5%; /*Makes the borders round with a radius of 5%*/
+	font-size: 45px;
+	color: #FF9C39; /*Orange color hex value*/
 }
 
 /**************SOS Button****************/

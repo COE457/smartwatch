@@ -1,20 +1,33 @@
 var NoMsg = false; /* Global variable set to true when there are no messages */
-var tau;/* Global Variable */
-var id = 5;/*
- * Global variable to set the messages id and increment it with
- * every message, acts as the id received from the webportal
- */
+
+var getID = tizen.systeminfo.getCapabilities();
+var devID = getID.duid.substring(0,8);
+
+var TimeInterval= 1000*10;
+
 var panicHistoryURL = "http://192.168.137.1:3001/API/panicHistory/create";
-var client = new Paho.MQTT.Client('broker.hivemq.com', 8000, 'watch2/connect');
+var client = new Paho.MQTT.Client('broker.hivemq.com', 8000, 'messaging');
 client.connect({
 	onSuccess : onConnect
 });
 
 client.onMessageArrived = onMessageArrived;
 
-(function() {
-	
 
+(function() {	
+	try {
+		  tizen.power.setScreenStateChangeListener(function(prevState, currState) {
+		   if (currState === 'SCREEN_NORMAL' && prevState === 'SCREEN_OFF') {
+		       //when screen woke up
+		       var app = tizen.application.getCurrentApplication();
+		       tizen.application.launch(app.appInfo.id, function(){
+		             //you can do something here when your app have been launch
+		    	   
+		       });
+		   }
+		  });
+		} catch (e) {}
+		
 	// Intializing the variables by getting elements from the dom by ID
 	var page = document.getElementById("hsectionchangerPage"), changer = document
 			.getElementById("hsectionchanger"), sectionLength = document
@@ -27,9 +40,12 @@ client.onMessageArrived = onMessageArrived;
 	 */
 
 	page.addEventListener("pagebeforeshow", function() {
+
+		
 		// Creating PageIndicator
 		pageIndicator = tau.widget.PageIndicator(elPageIndicator, {
 			numberOfPages : sectionLength
+			
 		});
 		pageIndicator.setActive(0);
 		// Creating SectionChanger object
@@ -38,6 +54,15 @@ client.onMessageArrived = onMessageArrived;
 			orientation : "horizontal", // set the section scroller orientation
 			useBouncingEffect : true
 		});
+		
+		setTimeout(doSomething, 3000);
+
+		function doSomething() {
+			console.log(devID);
+			document.getElementById("WatchID").innerHTML=  devID;
+			tau.openPopup("#WatchIDPopUp");
+		}
+
 	});
 
 	/**
@@ -105,9 +130,8 @@ function initializeNoMsg() {
 
 	}
 
+
 }
-
-
 
 /**
  * @function receiveMsg
@@ -186,11 +210,15 @@ function onConnect() {
 	client.subscribe("watch2/message");
 
 	client.subscribe("watch2/msgDismissed");
+	watchIdJson={"id":devID};
 
-	var message = new Paho.MQTT.Message("Watch ready!");
-	message.destinationName = "watch2/connect";
+	var message = new Paho.MQTT.Message(JSON.Stringify(watchIdJson));
+	message.destinationName = "kidsMonitor/connect";
 	client.send(message);// publish message
 }
+
+
+
 
 // called when the client connects
 //function onConnectDismiss() {
@@ -231,12 +259,13 @@ $("#SOS").on("click", function sendSOSAlert() {
 	// Send to parents and alert
 	var timestamp = new Date().getTime();
 	var panicJson = {
-		"Smartwatch" : "16e331e82ea91fee7b03f0be9017903a",
+		"Smartwatch" : devID,
 		"date" : timestamp,
 		"dismissed" : "0"
 	};
 	sendMsg(panicJson, panicHistoryURL);
 });
+
 
 
 $("#message-view").on("click", ".dismiss", function r() {
@@ -304,5 +333,8 @@ function sendMsg(body, url) {
 	});
 
 }
-window.init = initializeNoMsg();// calls intializeNoMsg once window is
+window.onload = initializeNoMsg();// calls intializeNoMsg once window is
+
+
+
 // initilized

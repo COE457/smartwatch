@@ -11,7 +11,10 @@
  */
 
 window.app = window.app || {};
+var TimeInterval= 1000*10;
 
+var getID = tizen.systeminfo.getCapabilities();
+var devID = getID.duid.substring(0,8);
 // strict mode wrapper
 (function defineApp(app) {
 	'use strict';
@@ -76,19 +79,13 @@ window.app = window.app || {};
 		client.subscribe("watch2/lightSensor");
 		console.log("subscribed");
 
-		var message = new Paho.MQTT.Message("Watch ready hehe!");
-		console.log(message.payloadString);
-		message.destinationName = "watch2/lightSensor";
-		client.send(message); // publish message
-		console.log("message sent");
-
-		setInterval(sendLight, 1000 * 6);
+		setInterval(sendLight, TimeInterval);
 		function sendLight() {
 			app.model
 					.getSensorValue(function onSensorValueReceived(sensorData) {
 						var timestamp = new Date().getTime();
 						var lightJson = {
-							"Smartwatch" : "16e331e82ea91fee7b03f0be9001a3cd",
+							"Smartwatch" : devID,
 							"date" : timestamp,
 							"reading" : sensorData.lightLevel + 'lx'
 						}

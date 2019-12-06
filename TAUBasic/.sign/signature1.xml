@@ -116,19 +116,19 @@
 </Reference>
 <Reference URI="SectionChanger.html">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>CO54vLbqUjz/rt2tAaXJaPQgsTsBMf5DMZU0QZO9Ngs=</DigestValue>
+<DigestValue>1p1NBzuzVk/mNrK2kp9hz9BkXodmTjXH/mgkIDqN9Zs=</DigestValue>
 </Reference>
 <Reference URI="author-signature.xml">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>Z4L2SB35kMVA77FQdRDGq8PR95mAYCGxiN8UiBV4DNk=</DigestValue>
+<DigestValue>v3I9SWzaapjZ5VdF2D+EgvVwZmft+cGnqSg4FQPZ6yE=</DigestValue>
 </Reference>
 <Reference URI="config.xml">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>zgDbnySYrDQAxRYB5kAwK6J3AC9NKw0NtJdX+GuWA/Q=</DigestValue>
+<DigestValue>jBwg0yp3xhP1fVHy9v786ZenR658b53n9FhnB16owzc=</DigestValue>
 </Reference>
 <Reference URI="css%2Fstyle.css">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>65TpKqnRRBZ7O8v2Vt781abGur3xMpNzXoMtv/4Ouq4=</DigestValue>
+<DigestValue>ZfMpP+SpSaxlYAFOKqe+5ifs+VdM7+2Vzw6Vwqre+Eo=</DigestValue>
 </Reference>
 <Reference URI="images%2FDuck.jpg">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -176,23 +176,19 @@
 </Reference>
 <Reference URI="js%2FSensors.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>h6rQF2zWtTZh7Qi59ARfbLrxxOyv2meuZtKH6+UrD4Q=</DigestValue>
+<DigestValue>YXt4Tzto0d/trHpBu0B86nIo15+pvaMIvfD/pINJz+s=</DigestValue>
 </Reference>
 <Reference URI="js%2Fapp.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>j50+B1UXDTxb7IgCawH1KwfNINEq+HwxCj1+w2oH00Q=</DigestValue>
+<DigestValue>t62nCfPe4IwHmYQlC20OgR3a/3AAcHMZ37wECpPvgB8=</DigestValue>
 </Reference>
 <Reference URI="js%2Fbluetooth.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>KOK9Enhn+rG9DSPXix1zPoMBGGWYGn2LIvKRpsv9FsY=</DigestValue>
+<DigestValue>LAlEJFB2Q8U60hgpkf4X+hEoYwZtiaA3GPgDNiM1nWk=</DigestValue>
 </Reference>
 <Reference URI="js%2Fcircle-helper.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
 <DigestValue>0+TbSqg2TfiaBBu+OpgUziLxj8xqrvGgo5rR4vZRB9U=</DigestValue>
-</Reference>
-<Reference URI="js%2Fcommunication.js">
-<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=</DigestValue>
 </Reference>
 <Reference URI="js%2Fjquery.min.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -204,11 +200,11 @@
 </Reference>
 <Reference URI="js%2FlightSensorMQTT.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>sTJo636EobBLIXo9eCORECkZe6LRlguDEIfKLl1An3M=</DigestValue>
+<DigestValue>YSdpLSUqB49WZRzifca32QYxZma4o320Vu9bNfchadQ=</DigestValue>
 </Reference>
 <Reference URI="js%2Flocation.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>aM2VE9Ql8d0Z92rncic/jqJm3nHArJhO88Eg7cQsPA4=</DigestValue>
+<DigestValue>Bj44gVTBz0KQfTjYpmAJ3n0rJLyrz2BSQNEmFTdgi/Y=</DigestValue>
 </Reference>
 <Reference URI="js%2FlowBatteryCheck.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -1567,11 +1563,11 @@
 </Reference>
 </SignedInfo>
 <SignatureValue>
-lrim47akqyC8QKTreSNZvFBaf+LfYch+f0aNBTJI9K6G82pZoPHGGlL13tvGQSp84NQHaXiwwfHR
-DS2QbC8Eb/oGFhJyGqf+kohveLhObBWlCIX85bkIgCW91vvI4r0dNv2KXWmIrlCkeJSfB1/qSpl7
-TE8xUbenY3YBKGv94z2EtVuSYjcCH2mYzmzxUL8HekXlWDQ1WVlLYmo8LQFDnZGfJOzbZK7SXt3y
-pr+91xXVuhE98YRQVr59C66AZue5NvuCeDKn4C+Z6vRWOr9SUsslcZ1UUKl7SeU5SoICV4MuEN6Z
-VZDH7ttIvQ34HlYYvnDPydtqtXYDpukl8vIdqQ==
+Hxyk4pMIXpkH7IUJvH+K/XrzqCYCmJBQCY1azXoPBg9Bp2s3H1zUzt7bAhvUYuitTl7veXNnioL3
+NajbUMqh1A1YUfoN+Xnl4EFP/hm9p99YF1CUJJGK3hvYgZ1MrXwjtnfh/7gVLSFhcdGMV6BjFDKh
+2xnrCFtBjeynE1jqhssQAr7uaRenYDOJkIo/CZhtXJyja5kOtsF5ucdPVT9a9KkMbNtn13VpM2cL
+vAzZGGrQeKC8MrXH4Hzb+89l1Dt/7qFwoUljwybl5sp3CIq61bGnkW+UCjSYWHFnmRpEH17MkqT9
+pclpAuTN68r8tnR11RE/CZF7ojjfU5P6+fjoPw==
 </SignatureValue>
 <KeyInfo>
 <X509Data>
