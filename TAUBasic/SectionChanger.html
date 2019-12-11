@@ -4,30 +4,14 @@
 <meta
 	content="width=device-width, initial-scale=1,  maximum-scale=1.0, user-scalable=no"
 	name="viewport" />
-
-<title>Kids Monitoring System</title>
-
+<title>Child Monitoring System</title>
 <link href="../../../lib/tau/wearable/theme/default/tau.css"
 	rel="stylesheet" />
 <link href="../../../css/style.css" rel="stylesheet" />
 <link href="../../../lib/tau/wearable/theme/default/tau.circle.css"
 	media="all and (-tizen-geometric-shape: circle)" rel="stylesheet" />
-
-
 </head>
-
 <body>
-	<!-- Popup -->
-	<div id="WatchIDPopUp" class="ui-popup ">
-		<div class="ui-popup-header">Watch Id is</div>
-		<div id="WatchID" class="ui-popup-content"></div>
-		<div class="ui-popup-footer ui-grid-col-1">
-			<!-- Popup footed -->
-			<a id="btnPopup-cancel" data-role="button" class="ui-btn "
-				data-rel="back" data-inline="true">OK</a>
-		</div>
-	</div>
-
 	<div class="ui-page bg" data-enable-page-scroll="false"
 		id="hsectionchangerPage">
 		<!-- This div is used to  -->
@@ -36,11 +20,8 @@
 		<div class="ui-content" id="hsectionchanger">
 			<!-- section changer has only one child. -->
 			<div>
-
-
 				<!-- First Section - Watch Interface -->
 				<section class="ui-section-active">
-
 					<!-- Active Section is the section that first shows -->
 					<div>
 						<img src="images/donalds.png" alt="Cover Page" />
@@ -67,88 +48,12 @@
 							<div id="str-day" class="borderdText"></div>
 							<!-- div to show the day -->
 						</div>
+					</div>
 				</section>
 				<!--Second Section - Messages Interface-->
 				<section>
-
-					<!-- Sample message -->
-					<div id="message-view" class="container">
-						<!-- container that holds the message card contents -->
-						<div id="1">
-							<!-- Message Id number is specified -->
-							<div class="msgFrom" id="msgSender1">Mum</div>
-							<!-- Message Sender is shown -->
-							<div class="msgContainer">
-								<!-- msg container class is used to format the msg-->
-								<div>
-									<span class="msg">Lunch is ready</span>
-									<!-- The message Lunch is ready is printed -->
-								</div>
-								<div>
-									<!-- a link to the Popup which will show once the checkbox is checked-->
-									<a href="#Popup1"> <input type="checkbox" id="checkbox1"
-										class="checkboxes">
-									</a>
-								</div>
-								<!-- Popup -->
-								<div id="Popup1" class="ui-popup">
-									<div class="ui-popup-content">Dismiss Message?</div>
-									<!-- Popup message -->
-									<div class="ui-popup-footer ui-grid-col-2">
-										<!-- Popup footed -->
-										<a id="btnPopup-ok1" data-role="button" class="ui-btn dismiss">OK</a>
-										<!-- Clicking on Ok will call the java scrip remove function depnding on the id -->
-										<a id="btnPopup-cancel1" data-role="button" class="ui-btn "
-											data-rel="back">Cancel</a>
-										<!-- Clicking on cancel will go back to the page -->
-									</div>
-								</div>
-							</div>
-						</div>
-						<div id="2">
-							<div class="msgFrom" id="msgSender2">Dad</div>
-							<div class="msgContainer">
-								<div>
-									<span class="msg">Go to sleep</span>
-								</div>
-								<div>
-									<a href="#Popup2"> <input type="checkbox" id="checkbox2"
-										class="checkboxes">
-									</a>
-								</div>
-								<div id="Popup2" class="ui-popup ">
-									<div class="ui-popup-content">You're sure you read the message?</div>
-									<div class="ui-popup-footer ui-grid-col-2">
-										<a id="btnPopup-ok2" data-role="button" class="ui-btn dismiss">Yes I read it</a>
-										<a id="btnPopup-cancel2" data-role="button" class="ui-btn"
-											data-rel="back" >No not really</a>
-
-									</div>
-								</div>
-							</div>
-						</div>
-						<div id="3">
-							<div class="msgFrom" id="msgSender3">Mum</div>
-							<div class="msgContainer">
-								<div>
-									<span class="msg">Come Here</span>
-								</div>
-								<div>
-									<a href="#Popup3"> <input type="checkbox"
-										id="checkbox-news3" class="checkboxes">
-									</a>
-								</div>
-								<div id="Popup3" class="ui-popup ">
-									<div class="ui-popup-content">Dismiss Message?</div>
-									<div class="ui-popup-footer ui-grid-col-2">
-										<a id="btnPopup-ok3" data-role="button" class="ui-btn dismiss">OK</a>
-										<a id="btnPopup-cancel3" data-role="button" class="ui-btn"
-											data-rel="back" >Cancel</a>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
+					<!-- Messages Container -->
+					<div id="message-view" class="container"></div>
 				</section>
 
 				<!--Third Section - Panic Button Interface-->
@@ -171,34 +76,27 @@
 				</section>
 				<!-- Third page to show watch ID -->
 				<section>
-				<div>
+					<div>
 						<img src="images/download.png" alt="Cover Page" />
 						<!-- Loading an image as a background -->
 					</div>
-					<!-- a link to the Toast Popup which will show once the SOSbutton is clicked-->
-						<a href="WatchIDPopUp">
-							<button id="ShowId">Show Watch ID</button>
-						</a>
-				
+					<button id="ShowId">Show Watch ID</button>
 				</section>
 			</div>
 		</div>
 	</div>
 
 	<!------------------------------------------Loading java script files---------------------------------------------------->
-
 	<script src="js/jquery.min.js"></script>
 	<script src="js/mqtt.js"></script>
 	<script src="lib/tau/wearable/js/tau.min.js"></script>
 	<script src="js/watch.js"></script>
 	<script src="js/lowBatteryCheck.js"></script>
 	<script src="js/circle-helper.js"></script>
-	<!-- <script src="js/Sensors.js"></script>
-	 <script src="js/location.js"></script>
-	 	<script src="js/lightSensor.js"></script>
+	<script src="js/location.js"></script>
+	<script src="js/Sensors.js"></script>
+	<script src="js/app.model.js"></script>
 	<script src="js/lightSensorMQTT.js"></script>
-	<script src="js/bluetooth.js"></script>-->
-
 	<script src="js/app.js"></script>
 
 </body>

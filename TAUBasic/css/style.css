@@ -1,19 +1,19 @@
+/*to prevent touch actions and fix the 
+passive listner bug */
 .owl-carousel {
 	-ms-touch-action: pan-y;
 	touch-action: pan-y;
 }
-
 or
 .owl-carousel {
 	-ms-touch-action: none;
 	touch-action: none;
 }
-
 .drag-drop-item {
 	touch-action: none;
 }
-
-/* Formatting the html and body elements to have a width and height of 100% with no margins*/
+/* Formatting the html and body elements to have 
+a width and height of 100% with no margins*/
 html, body {
 	width: 100%;
 	height: 100%;
@@ -23,12 +23,11 @@ html, body {
 /*Overwritting the ui-content class for the section tag*/
 .ui-content section {
 	overflow: hidden; /*clips the overflow and hides the rest of content*/
-	/*overflow-y: auto; /*adds a veritcal scrollbar when necessary*/
 }
 
 /*
-* Formatting the ui-btn class under the ui-popup-footer class under the ui-popup class
-* Positioning the button and formatting the text color to white
+* Positioning the popup footer button and 
+* formatting the text color to white
 */
 .ui-popup .ui-popup-footer .ui-btn {
 	top: -150%;
@@ -37,9 +36,6 @@ html, body {
 	padding-top: 0px;
 	padding-bottom: 0px;
 }
-/*
-*
-*/
 .container {
 	background-size: cover;
 	/* Resize the background image to cover the entire container */
@@ -120,22 +116,18 @@ img {
 	background-color: #fff !important;
 	/* Add the blur effect */
 	filter: blur(2px);
-	-webkit-filter: blur(2px);
 	background-attachment: fixed;
 	background-repeat: repeat-y;
 	/*Repeats the image vertically when needed*/
-
-	/* background-size: cover; /* Resize the background image to cover the entire container */
-	/* 	background-position: center; /* Center the image */
-	/*	background-repeat: no-repeat; /* Do not repeat the image */
+	background-size: cover; /* Resize the background image to cover the entire container */
 }
-
 .bg {
 	background-color: #fff !important;
 	/*makes the background color as white*/
 }
-
+/*Format the Show ID button*/
 #ShowId {
+	/*Position the button*/
 	position: absolute;
 	left: 10%;
 	top: 40%;
@@ -149,9 +141,8 @@ img {
 	/*Set the borders color to grean with a width of 2px*/
 	border-radius: 5%; /*Makes the borders round with a radius of 5%*/
 	font-size: 45px;
-	color: #FF9C39; /*Orange color hex value*/
+	color: #FF9C39; /*Orange color hex value for the text*/
 }
-
 /**************SOS Button****************/
 /*css to style the SOS button*/
 button.SOSbutton {
@@ -201,7 +192,6 @@ button.SOSbutton:active {
 		0px 0px 1px 12px hsla(350, 80%, 40%, 0.9), 1px 3px 14px 14px
 		hsla(350, 80%, 0%, 0.4);
 }
-
 /************Watch css***************/
 /*Formats the element with digital-body id postion*/
 #digital-body {
@@ -209,13 +199,11 @@ button.SOSbutton:active {
 	top: 30%;
 	left: 35%;
 }
-
 /*Class used to add a shadow effect to text*/
 .borderdText {
 	text-shadow: .1em .1em .2em rgba(0, 0, 0, 0.4);
 	font-weight: bold;
 }
-
 /*Formats the battery borders position,size and color through the batter-rec id*/
 #battery-rec {
 	position: absolute;
@@ -235,7 +223,6 @@ button.SOSbutton:active {
 	z-index: 10;
 	background-color: black;
 }
-
 /*Formats the time postion, color and size*/
 #rec-time {
 	position: absolute;
@@ -244,32 +231,27 @@ button.SOSbutton:active {
 	top: 35%;
 	left: 12%;
 }
-
 #str-hours {
 	font-size: 300%;
 	float: left;
 	color: black;
 }
-
 #str-console {
 	font-size: 300%;
 	float: left;
 	color: black;
 }
-
 #str-minutes {
 	font-size: 300%;
 	float: left;
 	color: black;
 }
-
 #str-ampm {
 	font-size: 100%;
 	color: black;
 	padding-top: 20%;
 	padding-left: 65%;
 }
-
 /*Formats the string day & month postion color and size*/
 #rec-string-time {
 	position: absolute;
@@ -277,7 +259,6 @@ button.SOSbutton:active {
 	top: 75%;
 	left: 24%;
 }
-
 #str-day {
 	font-size: 125%;
 	color: black;

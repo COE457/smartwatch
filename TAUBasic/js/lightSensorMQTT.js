@@ -11,7 +11,6 @@
  */
 
 window.app = window.app || {};
-var TimeInterval= 1000*10;
 
 var getID = tizen.systeminfo.getCapabilities();
 var devID = getID.duid.substring(0,8);
@@ -65,56 +64,51 @@ var devID = getID.duid.substring(0,8);
 	 */
 	function init() {
 		bindEvents();
-
 		app.model.init();
-
 	}
-	var client = new Paho.MQTT.Client('broker.hivemq.com', 8000, 'lightSensor');
-
+	var clieanLight = new Paho.MQTT.Client('broker.hivemq.com', 8000, 'lightSensor');
+	clieanLight.connect({
+		onSuccess : onConnect
+	});
+	clieanLight.onConnectionLost = onConnectionLost;
+	function onConnectionLost(responseObject) {
+		if (responseObject.errorCode !== 0) {
+			console.log("onConnectionLost:" + responseObject.errorMessage);
+		}
+	}
 	// called when the client connects
 	function onConnect() {
 		// Once a connection has been made, make a subscription and send a
 		// message.
 		console.log("connected");
-		client.subscribe("watch2/lightSensor");
+		clieanLight.subscribe("childMonitor/sensors/"+devID+"/lightSensorHistory");
 		console.log("subscribed");
 
-		setInterval(sendLight, TimeInterval);
+		setInterval(sendLight, 1000*10);
 		function sendLight() {
-			app.model
-					.getSensorValue(function onSensorValueReceived(sensorData) {
+
+			app.model.getSensorValue(function onSensorValueReceived(sensorData) {
+
 						var timestamp = new Date().getTime();
+						// create a JSON to send
 						var lightJson = {
 							"Smartwatch" : devID,
 							"date" : timestamp,
 							"reading" : sensorData.lightLevel + 'lx'
 						}
-						console.log(lightJson);
 						var message = new Paho.MQTT.Message(JSON.stringify(lightJson));
-						message.destinationName = "watch2/lightSensor";
-						client.send(message); // publish message
+						message.destinationName = "childMonitor/sensors/"+devID+"/lightSensorHistory";
+						clieanLight.send(message); // publish message
 						console.log("message sent");
-					});
+					}, err => {console.log(err)});
 		}
 
 	}
-	client.onMessageArrived = onMessageArrived;
+	clieanLight.onMessageArrived = onMessageArrived;
 
 	function onMessageArrived(message) {
 		console.log('Message Arrived');
-		// var msg = JSON.parse(message.payloadString); //only if the message is
-		// a string in JSON format
-		console.log(message.payloadString);
-		if (message.destinationName == 'watch2/lightSensor') {
-			console.log("message arrived");
-		} else {
-			tizen.application.getCurrentApplication().exit();
-		}
 	}
-
-	client.connect({
-		onSuccess : onConnect
-	});
 
 	window.addEventListener('load', init);
 }(window.app));

@@ -11,7 +11,7 @@
     <feature name="http://tizen.org/feature/network.bluetooth"/>
     <feature name="http://tizen.org/feature/network.bluetooth.le"/>
     <icon src="trans_icon (1) (1).png"/>
-    <name>KidsMonitor</name>
+    <name>ChildMonitor</name>
     <tizen:privilege name="http://tizen.org/privilege/application.launch"/>
     <tizen:privilege name="http://tizen.org/privilege/notification"/>
     <tizen:privilege name="http://tizen.org/privilege/bluetooth"/>

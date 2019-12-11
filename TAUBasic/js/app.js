@@ -1,33 +1,44 @@
-var NoMsg = false; /* Global variable set to true when there are no messages */
-
+var NoMsg = true; /* Global variable set to true when there are no messages */
+var tau;/* Global Variable */
 var getID = tizen.systeminfo.getCapabilities();
-var devID = getID.duid.substring(0,8);
+var devID = getID.duid.substring(0, 8);
 
-var TimeInterval= 1000*10;
+// URL to create the smartwatch on the server
+var smartWatchURL = "http://192.168.137.1:3001/API/smartwatch/create";
 
-var panicHistoryURL = "http://192.168.137.1:3001/API/panicHistory/create";
+// Create a MQTT Client
 var client = new Paho.MQTT.Client('broker.hivemq.com', 8000, 'messaging');
+client.onMessageArrived = onMessageArrived;
+// Define onConnectionLost function
+client.onConnectionLost = onConnectionLost;
+function onConnectionLost(responseObject) {
+	if (responseObject.errorCode !== 0) {
+		console.log("onConnectionLost:" + responseObject.errorMessage);
+	}
+}
+// Connect the client and call onConnect if the connect call was successful
 client.connect({
 	onSuccess : onConnect
 });
 
-client.onMessageArrived = onMessageArrived;
+(function() {
 
-
-(function() {	
 	try {
-		  tizen.power.setScreenStateChangeListener(function(prevState, currState) {
-		   if (currState === 'SCREEN_NORMAL' && prevState === 'SCREEN_OFF') {
-		       //when screen woke up
-		       var app = tizen.application.getCurrentApplication();
-		       tizen.application.launch(app.appInfo.id, function(){
-		             //you can do something here when your app have been launch
-		    	   
-		       });
-		   }
-		  });
-		} catch (e) {}
-		
+		tizen.power
+				.setScreenStateChangeListener(function(prevState, currState) {
+					if (currState === 'SCREEN_NORMAL'
+							&& prevState === 'SCREEN_OFF') {
+						// when screen woke up
+						var app = tizen.application.getCurrentApplication();
+						tizen.application.launch(app.appInfo.id, function() {
+							// you can do something here when your app have been
+							// launch
+
+						});
+					}
+				});
+	} catch (e) {
+	}
 	// Intializing the variables by getting elements from the dom by ID
 	var page = document.getElementById("hsectionchangerPage"), changer = document
 			.getElementById("hsectionchanger"), sectionLength = document
@@ -40,12 +51,9 @@ client.onMessageArrived = onMessageArrived;
 	 */
 
 	page.addEventListener("pagebeforeshow", function() {
-
-		
 		// Creating PageIndicator
 		pageIndicator = tau.widget.PageIndicator(elPageIndicator, {
 			numberOfPages : sectionLength
-			
 		});
 		pageIndicator.setActive(0);
 		// Creating SectionChanger object
@@ -54,15 +62,8 @@ client.onMessageArrived = onMessageArrived;
 			orientation : "horizontal", // set the section scroller orientation
 			useBouncingEffect : true
 		});
-		
-		setTimeout(doSomething, 3000);
-
-		function doSomething() {
-			console.log(devID);
-			document.getElementById("WatchID").innerHTML=  devID;
-			tau.openPopup("#WatchIDPopUp");
-		}
-
+		// Show an alert on load with the watchID
+		alert("Watch Id is " + devID);
 	});
 
 	/**
@@ -119,6 +120,7 @@ client.onMessageArrived = onMessageArrived;
  * 
  */
 function initializeNoMsg() {
+	console.log(devID);
 	var temp = document.getElementById('message-view');
 	if (NoMsg === true) {
 		var eldiv = document.createElement('div');
@@ -127,26 +129,7 @@ function initializeNoMsg() {
 		elspan.innerHTML = "No messages";
 		eldiv.appendChild(elspan);
 		temp.appendChild(eldiv);
-
 	}
-
-
-}
-
-/**
- * @function receiveMsg
- * @description
- * @fires makeMsg
- * 
- */
-function receiveMsg() {
-	// receives msg from webportal, parses the message to get the msgFrom and
-	// messageBody var
-	var msgFrom, messageBody, id;
-	makeMsg(msgFrom, messageBody, id);// creates the msg HTML depending on the
-	// message body and messafe sender
-	id++;// increment id counter to have distinct messages
-
 }
 
 /**
@@ -171,136 +154,69 @@ function makeMsg(msgFrom, messageBody, id) {
 	}
 	// creates variables to name the elements ids
 	var msgSenderid = "msgSender" + id;
-	var popupid = "Popup" + id;
 	var checkboxid = "checkbox" + id;
-	var cancelbtnid = "btnPopup-cancel" + id;
-	var OKbtnid = "btnPopup-OK" + id;
 	// creats the HTML string to be appended
-	var s = "<div class=\"msgFrom\" id=\""
-			+ msgSenderid
-			+ "\">"
-			+ msgFrom
+	var s = "<div class=\"msgFrom\" id=\"" + msgSenderid + "\">" + msgFrom
 			+ "</div><div class=\"msgContainer\"><div><span class=\"msg\">"
-			+ messageBody
-			+ "</span></div><div><a href=\"#"
-			+ popupid
-			+ "\" data-rel=\"popup\"> <input type=\"checkbox\" id=\""
+			+ messageBody + "</span></div><div><input type=\"checkbox\" id=\""
 			+ checkboxid
-			+ "\" class=\"checkboxes\"</a></div><div id=\""
-			+ popupid
-			+ "\" class=\"ui-popup\"><div class=\"ui-popup-content\">Dismiss Message?</div><div class=\"ui-popup-footer ui-grid-col-2\"><a id=\""
-			+ OKbtnid
-			+ "\" data-role=\"button\" class=\"ui-btn dismiss\">OK</a> <a id=\""
-			+ cancelbtnid
-			+ "\"data-role=\"button\" class=\"ui-btn \" data-rel=\"back\">Cancel</a></div></div></div>";
+			+ "\" class=\"checkboxes dismiss\"></div></div></div>";
 	// creats the msg div Element to add the HTML to
 	var msg = document.createElement("div");
 	msg.setAttribute("id", id);// sets the id of the div element
 	msg.innerHTML = s;// adds the HTMl inside the div element
 	temp.appendChild(msg);// appends the msg Node Element to the parent Node
-	id = id + 1;
 }
 
 // called when the client connects
 function onConnect() {
 	// Once a connection has been made, make a subscription and send a message.
 	console.log("connected");
-	
-	client.subscribe("watch2/connect");
-	client.subscribe("watch2/message");
-
-	client.subscribe("watch2/msgDismissed");
-	watchIdJson={"id":devID};
-
-	var message = new Paho.MQTT.Message(JSON.Stringify(watchIdJson));
-	message.destinationName = "kidsMonitor/connect";
-	client.send(message);// publish message
+	// subscribe to the topics
+	client.subscribe("childMonitor/connect/"+devID);
+	client.subscribe("childMonitor/message/"+devID);
+	client.subscribe("childMonitor/messageDismissed/"+devID);
+	// create watch ID to register watch
+	watchIdJson = {
+		"serialNumber" : devID,
+		"active" : true
+	};
+	// register Watch
+	sendMsg(watchIdJson, smartWatchURL);
 }
-
-
-
-
-// called when the client connects
-//function onConnectDismiss() {
-//	// Once a connection has been made, make a subscription and send a message.
-//	console.log("connected dismiss");
-//	client.subscribe("watch2/msgDismissed");
-//	var message = new Paho.MQTT.Message("Dimissied connected");
-//	message.destinationName = "watch2/msgDismissed";
-//	clientDismiss.send(message);// publish message
-//}
 
 function onMessageArrived(message) {
 	console.log('Message Arrived');
 	// string in JSON format
-	
 	console.log(message.payloadString);
 	console.log(message.destinationName);
-	if (message.destinationName == 'watch2/message') {
-		var msg = JSON.parse(message.payloadString); //only if the message is a
+	// only if the message is from childMonitor/message
+	if (message.destinationName == 'childMonitor/message/'+devID) {
+		navigator.vibrate(1000); //vibrates when a message arrives
+		alert("NEW MESSAGE!") //sends an alert when a message arrives
+		var msg = JSON.parse(message.payloadString);
 		console.log("message arrived");
 		makeMsg(msg.from, msg.msg, msg.id)
-		id++;
-	} else {
-		// tizen.application.getCurrentApplication().exit();
 	}
 }
-
-
-
-/**
- * 
- * @function sendSOSAlert
- * @desciption sends and Alert to parents onClick
- * @param
- * @fires sendMsg()
- */
-$("#SOS").on("click", function sendSOSAlert() {
-	// Send to parents and alert
-	var timestamp = new Date().getTime();
-	var panicJson = {
-		"Smartwatch" : devID,
-		"date" : timestamp,
-		"dismissed" : "0"
-	};
-	sendMsg(panicJson, panicHistoryURL);
+// Show watch id on click
+$("#ShowId").on("click", function alertWatchID() {
+	alert("Watch Id is " + devID);
 });
 
-
-
+// Dismiss message on click and delete its view for dynamically created
 $("#message-view").on("click", ".dismiss", function r() {
-	//var lastChar = this.id[this.id.length - 1];// gets the id number from the
 	var lastChar = this.id.match(/\d+/g);
-
 	// charecter of the id string
 	var temp = document.getElementById('message-view');
-	document.getElementById(lastChar.join()).remove();// removes the element with the
-	// id found
-	var message = new Paho.MQTT.Message("Dimissied " + id);
-	message.destinationName = "watch2/msgDismissed";
+	document.getElementById(lastChar.join()).remove();
+	// removes the element with the id found
+	var Dismissed = {
+		"id" : lastChar
+	};
+	var message = new Paho.MQTT.Message(JSON.stringify(Dismissed));
+	message.destinationName = "childMonitor/messageDismissed/"+devID;
 	client.send(message);// publish message
-	// if all messages are removed
-	if (temp.childElementCount === 0) {
-		alert("No new messages");// preview and alert
-		NoMsg = true;
-		initializeNoMsg();// display on the screen that there are no messages
-	}
-
-});
-
-
-$(".dismiss").on("click", function remove() {
-
-	//var lastChar = this.id[this.id.length - 1];// gets the id number from the charecter of the id string
-	var lastChar = this.id.match(/\d+/g);
-	var temp = document.getElementById('message-view');
-	document.getElementById(lastChar.join()).remove();// removes the element with the
-	// id found
-
-	var message = new Paho.MQTT.Message("Dimissied "+ lastChar);
-	message.destinationName = "watch2/msgDismissed";
-	client.send(message);// publish message
-
 	// if all messages are removed
 	if (temp.childElementCount === 0) {
 		alert("No new messages");// preview and alert
@@ -331,10 +247,6 @@ function sendMsg(body, url) {
 			console.log(errorThrown);
 		}
 	});
-
 }
-window.onload = initializeNoMsg();// calls intializeNoMsg once window is
-
-
-
+window.init = initializeNoMsg();// calls intializeNoMsg once window is
 // initilized
